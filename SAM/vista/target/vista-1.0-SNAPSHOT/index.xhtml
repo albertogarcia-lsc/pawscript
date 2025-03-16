@@ -10,50 +10,97 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <p:panelGrid class="txt">
-            <f:facet name="header">  
-                <p:row>
-                    <p:column colspan="7"><p:graphicImage url="resources/user.png" class="logo"/></p:column>
-                </p:row>
-            </f:facet>
-            <p:row>
-                <p:column styleClass="celda">Nombre:</p:column>
-                <p:column><h:outputText value="#{loginUI.usuario.idAlumno.nombre}" /></p:column>
-            </p:row>
-            <p:row>
-                <p:column styleClass="celda">Apellido:</p:column>
-                <p:column><h:outputText value="#{loginUI.usuario.idAlumno.apellidos}" /></p:column>
-            </p:row>
-            <p:row>
-                <p:column styleClass="celda">Matricula:</p:column>
-                <p:column><h:outputText value="#{loginUI.usuario.idAlumno.matricula}" /></p:column>
-            </p:row>
-        </p:panelGrid>
-    </h:body>
-    <style>
-        .logo{
-            width: 170px;
-        }
-        .celda{
-            width: 25%;
-            background-color: #089b4d;
-            color:white;
-        }
-        .txt{
-                position: absolute;
-                top:0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 35%;
-                width: 25%;
-                padding: 25px;
-                margin: auto;
-                background: white;
-                border-radius: 5px;
-                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+       
+        <!-- 
+        <h1> SAM </h1>
+        <p:graphicImage url="resources/uabcl.png" class="logo-nav"/>
+
+        <p:menu styleClass="menu">
+            <p:menuitem value="Alta Profesor" url="http://www.google.com"/>
+            <p:menuitem value="Alta Unidad de Aprendizaje" url="http://www.hotmail.com" />
+            <p:menuitem value="Asignación de Unidades" url="http://mail.yahoo.com" />
+            <p:menuitem value="Consulta General" url="http://www.youtube.com" />
+            <p:menuitem value="Modificación" url="http://www.break.com" />
+            <p:menuitem value="Eliminación" url="http://www.metacafe.com" />
+            <p:menuitem value="Cerrar Sesión" url="http://www.myspace.com" />
+        </p:menu>  
+             -->
+             
+        <p:panelGrid columns="1" style="margin: auto; width: 50%;">
             
+            <h:panelGrid columns="1" styleClass="form-altas" >
+                <h:outputLabel for="numProfesor" value="Numero de Profesor: " />
+                    <p:inputText id="numProfesor" />
+                <h:outputLabel for="nombre" value="Nombre: " />
+                    <p:inputText id="nombre" />
+                <h:outputLabel for="apellido" value="Apellido: " />
+                    <p:inputText id="apellido" />
+                <h:outputLabel for="rfc" value="RFC: " />
+                <p:inputText id="rfc" />
+            </h:panelGrid>
+            
+             <p:commandButton value="Enviar" style="background-color: #D0982A; border-radius: 10px; color: white;"/>
+             
+        </p:panelGrid>
+                   
+    </h:body>
+    
+    <style>
+
+        .form-altas {
+            text-align: center;
+            width: 100%;
+            border: none;
+         }
+         
+         .ui-inputfield {
+            width: 100%;
+            padding: 5px;
+          }
+
+        .ui-button {
+            width: 100%;
+            font-size: 16px;
+            padding: 10px;
         }
+        
+        .nav {
+           background-color: #4caf50;
+           border: none;
+        }
+        
+        .logo-nav {
+            width: 10%;
+            float: right;
+        }
+        
+        .menu {
+               background: none;
+               background-color: #cccccc;
+               border-radius: 5px;
+               padding: 10px;
+               outline: none;
+               box-shadow: none;
+               
+        }
+        
+        .menu .ui-menuitem-link {
+               padding: 8px 10px;
+               display: block;
+               text-decoration: none;
+               outline: none !important;
+               box-shadow: none !important;
+           }
+
+        .menu .ui-menuitem-link:hover {
+             background: none;
+             background-color: #b0b0b0; 
+        }
+
+        .menu .ui-menuitem {
+             margin-bottom: 20px;
+        }
+        
     </style>
 </html>
 
