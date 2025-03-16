@@ -1,0 +1,3 @@
+mx\pawscript\persistencia\HibernateUtil.class
+mx\pawscript\persistencia\InterfaceDAO.class
+mx\pawscript\persistencia\AbstractDAO.class
