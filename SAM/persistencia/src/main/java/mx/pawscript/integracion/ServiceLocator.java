@@ -15,28 +15,28 @@ import mx.pawscript.DAO.UnidadesDAO;
  */
 public class ServiceLocator {
     
-    private static ProfesoresDAO alumnoDAO;
-    private static UnidadesDAO usuarioDAO;
+    private static ProfesoresDAO profesoresDAO;
+    private static UnidadesDAO unidadesDAO;
     /**
      * se crea la instancia para alumno DAO si esta no existe
      */
     public static ProfesoresDAO getInstanceProfesoresDAO(){
-        if(alumnoDAO == null){
-            alumnoDAO = new ProfesoresDAO();
-            return alumnoDAO;
+        if(profesoresDAO == null){
+            profesoresDAO = new ProfesoresDAO();
+            return profesoresDAO;
         } else{
-            return alumnoDAO;
+            return profesoresDAO;
         }
     }
     /**
      * se crea la instancia de usuarioDAO si esta no existe
      */
     public static UnidadesDAO getInstanceUnidadesDAO(){
-        if(usuarioDAO == null){
-            usuarioDAO = new UnidadesDAO();
-            return usuarioDAO;
+        if(unidadesDAO == null){
+            unidadesDAO = new UnidadesDAO();
+            return unidadesDAO;
         } else{
-            return usuarioDAO;
+            return unidadesDAO;
         }
     }
     

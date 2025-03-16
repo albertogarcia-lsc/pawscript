@@ -29,10 +29,17 @@ public class FacadeProfesores {
     public Profesores login(String password, String correo){
         return delegateProfesores.login(password, correo);
     }
+         /**
+     * Metodo para verificar si el usuario esta registrado en la bd
+     * @param profesor
+     */
+    public void altaProfesor(Profesores profesor) {
+        delegateProfesores.registrarProfesor(profesor);
+    }
     
     /**
      * Metodo de ejemplo para guardar Usuario
-     * @param usuario de tipo usuario con id 0 para poder que se cree un id nuevo
+     * @param profesor
      */
     public void saveUsario(Profesores profesor){
         delegateProfesores.saveProfesor(profesor);
