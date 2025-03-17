@@ -7,66 +7,91 @@
           
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <title>SAM - Alta de Profesor</title>
     </h:head>
     <h:body>
-       
-        <!-- 
-        <h1> SAM </h1>
-        <p:graphicImage url="resources/uabcl.png" class="logo-nav"/>
-
-        <p:menu styleClass="menu">
-            <p:menuitem value="Alta Profesor" url="http://www.google.com"/>
-            <p:menuitem value="Alta Unidad de Aprendizaje" url="http://www.hotmail.com" />
-            <p:menuitem value="Asignación de Unidades" url="http://mail.yahoo.com" />
-            <p:menuitem value="Consulta General" url="http://www.youtube.com" />
-            <p:menuitem value="Modificación" url="http://www.break.com" />
-            <p:menuitem value="Eliminación" url="http://www.metacafe.com" />
-            <p:menuitem value="Cerrar Sesión" url="http://www.myspace.com" />
-        </p:menu>  
-             -->
-             
-        <p:panelGrid columns="1" style="margin: auto; width: 50%;">
+        
+        <p:layout fullPage="true">
             
-            <h:panelGrid columns="1" styleClass="form-altas" >
-                <h:outputLabel for="numProfesor" value="Numero de Profesor: " />
-                    <p:inputText id="numProfesor" />
-                <h:outputLabel for="nombre" value="Nombre: " />
-                    <p:inputText id="nombre" />
-                <h:outputLabel for="apellido" value="Apellido: " />
-                    <p:inputText id="apellido" />
-                <h:outputLabel for="rfc" value="RFC: " />
-                <p:inputText id="rfc" />
+            
+            <p:layoutUnit position="north" size="50" styleClass="nav">
+
+            </p:layoutUnit>
+
+        <p:layoutUnit position="west" size="300">
+            
+            <!--
+                <p:menu styleClass="menu">
+                    <p:menuitem value="Alta Profesor" url="login.xhtml"/>
+                    <p:menuitem value="Alta Unidad de Aprendizaje" url="http://www.hotmail.com" />
+                    <p:menuitem value="Asignación de Unidades" url="http://mail.yahoo.com" />
+                    <p:menuitem value="Consulta General" url="http://www.youtube.com" />
+                    <p:menuitem value="Modificación" url="http://www.break.com" />
+                    <p:menuitem value="Eliminación" url="http://www.metacafe.com" />
+                    <p:menuitem value="Cerrar Sesión" url="http://www.myspace.com" />
+                </p:menu> -->
+        </p:layoutUnit>
+            
+            
+        <p:layoutUnit position="center">
+            
+             <p:outputLabel value="Ingrese los siguientes datos" style=" display:block; text-align:center; font-weight:bold; margin-top:20px; font-size:25px;"/>
+             
+            <h:panelGrid columns="1" styleClass="form-altas"> 
+                <p:outputLabel for="numProfesor" value="Número de Profesor: " />
+                <p:inputText id="numProfesor" placeholder="Ingresa el numero de Profesor"/>
+                <p:outputLabel for="nombre" value="Nombre: " />
+                    <p:inputText id="nombre" placeholder="Ingresa el nombre" />
+                <p:outputLabel for="apellido" value="Apellido: " />
+                <p:inputText id="apellido" placeholder="Ingresa el apellido" />
+                <p:outputLabel for="rfc" value="RFC: " />
+                <p:inputText id="rfc" placeholder="ingresa el rfc" />
+                     
+                    <p:button outcome="login.xhtml" value="Navigate"/>
+              
+                <p:commandButton value="Aceptar" styleClass="btn-aceptar" style="background-color: #d0982a; border-radius: 10px; color: white;"/>
             </h:panelGrid>
             
-             <p:commandButton value="Enviar" style="background-color: #D0982A; border-radius: 10px; color: white;"/>
-             
-        </p:panelGrid>
-                   
+        </p:layoutUnit>
+        </p:layout>    
+
     </h:body>
     
     <style>
 
+        *{
+            margin: 0px;
+        }
+        
         .form-altas {
             text-align: center;
-            width: 100%;
+            margin-top: 5%;
+            margin-left: 35%;
             border: none;
+            font-weight: bold;
+         }
+         
+         .btn-aceptar{
+             text-align: center;
+             background-color: #d0982a;
+             color: white;
+             border-radius: 10px;
+             padding: 10px 20px;
+             box-shadow: none;
+             width: 85%;
          }
          
          .ui-inputfield {
+             text-align: center;
             width: 100%;
-            padding: 5px;
+            padding: 12px 10px;
+            margin: 15px;
           }
-
-        .ui-button {
-            width: 100%;
-            font-size: 16px;
-            padding: 10px;
-        }
         
         .nav {
-           background-color: #4caf50;
-           border: none;
+           background: #4caf50;
+           
         }
         
         .logo-nav {
@@ -75,10 +100,11 @@
         }
         
         .menu {
+            width: 100%;
                background: none;
                background-color: #cccccc;
                border-radius: 5px;
-               padding: 10px;
+               padding: 5px;
                outline: none;
                box-shadow: none;
                
@@ -99,7 +125,7 @@
 
         .menu .ui-menuitem {
              margin-bottom: 20px;
-        }
+        } 
         
     </style>
 </html>
