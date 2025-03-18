@@ -46,43 +46,43 @@ public class altaBeanUI implements Serializable{
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 2:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El RFC no sigue el formato correcto.");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "El RFC no sigue el formato correcto.");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 3:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El RFC ya esta registrado.");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "El RFC ya esta registrado.");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 4:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El número de profesor se encuentra ya registrado.");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "El número de profesor se encuentra ya registrado.");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 5:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El correo electronico no sigue el formato correcto.");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "El correo electronico no sigue el formato correcto.");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 6:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El campo numero profesor esta vacio");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "El campo numero profesor esta vacio");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 7:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El campo nombre profesor esta vacio");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "El campo nombre profesor esta vacio");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 8:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El campo apellido profesor esta vacio");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "El campo apellido profesor esta vacio");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 9:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El campo RFC esta vacio");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "El campo RFC esta vacio");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 10:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El campo correo electronico esta vacio");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "El campo correo electronico esta vacio");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 11:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El campo contraseña esta vacio");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "El campo contraseña esta vacio");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
             }

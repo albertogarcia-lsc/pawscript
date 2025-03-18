@@ -41,43 +41,43 @@ public class unidadesBeanUI implements Serializable{
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 2:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Éxito", "La clave unidad ya se encuentra registrada.");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "La clave unidad ya se encuentra registrada.");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 6:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El campo numero unidad esta vacio");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "El campo numero unidad esta vacio");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 7:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El campo nombre unidad esta vacio");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "El campo nombre unidad esta vacio");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 8:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El campo horas clase esta vacio");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "El campo horas clase esta vacio");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 9:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El campo horas taller esta vacio");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "El campo horas taller esta vacio");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 10:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El campo horas laboratorio esta vacio");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "El campo horas laboratorio esta vacio");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 11:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "La clave unidad no puede ser menor de 0");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "La clave unidad no puede ser menor de 0");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 12:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "Las horas clase no pueden ser menor que 0");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Las horas clase no pueden ser menor que 0");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 13:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "Las horas taller no pueden ser menor de 0");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Las horas taller no pueden ser menor de 0");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 14:
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "Las horas laboratorio no pueden ser menor que 0");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Las horas laboratorio no pueden ser menor que 0");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
             }
