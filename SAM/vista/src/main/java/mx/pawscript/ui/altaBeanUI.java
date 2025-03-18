@@ -37,14 +37,8 @@ public class altaBeanUI implements Serializable{
     }
     
     public void alta() throws IOException {
-        try {
-                System.out.println(ProfesorHelper.rfcExistente(profesor));
-                ProfesorHelper.alta(profesor);
-                profesor = new Profesores();
-                System.out.println("Exito");
-        } catch (Exception e) {
-                
-        }
+       System.out.println("prueba");
+
     }
     
         // Getter y Setter

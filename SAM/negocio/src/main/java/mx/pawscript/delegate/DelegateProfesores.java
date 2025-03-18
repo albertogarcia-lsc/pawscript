@@ -41,7 +41,7 @@ public class DelegateProfesores {
     }
     
     public Profesores RFCexistente(String rfc) {
-        return ServiceLocator.getInstanceProfesoresDAO().findByOneParameterUnique(rfc, "rfc");
+        return (Profesores) ServiceLocator.getInstanceProfesoresDAO().findByOneParameterUnique(rfc, "rfc");
     }
     
     /**
