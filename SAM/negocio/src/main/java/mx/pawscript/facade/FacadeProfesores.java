@@ -37,10 +37,6 @@ public class FacadeProfesores {
         delegateProfesores.registrarProfesor(profesor);
     }
     
-    public Profesores RFCexistente(String rfc) {
-        return delegateProfesores.RFCexistente(rfc);
-    }
-    
     /**
      * Metodo de ejemplo para guardar Usuario
      * @param profesor

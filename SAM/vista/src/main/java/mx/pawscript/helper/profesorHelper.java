@@ -23,8 +23,4 @@ public class profesorHelper implements Serializable{
         ServiceFacadeLocator.getInstanceFacadeProfesores().altaProfesor(profesor);
     }
     
-    public Profesores rfcExistente(Profesores profesor){
-        return ServiceFacadeLocator.getInstanceFacadeProfesores().RFCexistente(profesor.getRfc());
-    }
-    
 }
