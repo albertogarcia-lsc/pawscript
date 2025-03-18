@@ -4,56 +4,97 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
-          
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      >
+
     <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        <p:panelGrid class="txt">
-            <f:facet name="header">  
-                <p:row>
-                    <p:column colspan="7"><p:graphicImage url="resources/user.png" class="logo"/></p:column>
-                </p:row>
-            </f:facet>
-            <p:row>
-                <p:column styleClass="celda">Nombre:</p:column>
-                <p:column><h:outputText value="#{loginUI.usuario.idAlumno.nombre}" /></p:column>
-            </p:row>
-            <p:row>
-                <p:column styleClass="celda">Apellido:</p:column>
-                <p:column><h:outputText value="#{loginUI.usuario.idAlumno.apellidos}" /></p:column>
-            </p:row>
-            <p:row>
-                <p:column styleClass="celda">Matricula:</p:column>
-                <p:column><h:outputText value="#{loginUI.usuario.idAlumno.matricula}" /></p:column>
-            </p:row>
-        </p:panelGrid>
-    </h:body>
-    <style>
-        .logo{
-            width: 170px;
-        }
-        .celda{
-            width: 25%;
-            background-color: #089b4d;
-            color:white;
-        }
-        .txt{
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <style>
+            
+            *{
+                text-align: center;
+            }
+            .center{
+                float: none;
+                margin: 0 auto;
+                
+            }
+            
+           
+            div.login{
                 position: absolute;
                 top:0;
                 bottom: 0;
                 left: 0;
                 right: 0;
-                height: 35%;
-                width: 25%;
+                height: 65%;
+                width: 35%;
                 padding: 25px;
                 margin: auto;
                 background: white;
                 border-radius: 5px;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            .logo{
+                width: 150px;
+            }
+            .form-control:focus{
+                border-color:#007738;
+            }
+            .btn-warning{
+                text-shadow: none;
+                width: 100%;
+            }
             
-        }
-    </style>
-</html>
+            .btn-success{
+                text-shadow: none;
+                margin: 15px; 
+                margin-left: 2%;
+                padding: 10px;
+                float:left;
+                width: 20%;
+            }
+        </style>
+    </h:head>
 
+    <h:body>
+        <div class = "row">
+           
+            <h:form>
+                
+              <p:commandButton class="btn btn-success" value ="Regresar"/>
+              
+                <div class="login">
+                    <div class="panel-header">
+                        <p:outputLabel value="ALTA DE PROFESOR" />
+                    </div>
+                    <div class="panel-body">
+                        <div class=" form-group">
+                            <p:inputText class ="form-control" placeholder ="Numero de Profesor" autocomplete="false" value ="" />
+                        </div>
+                        <div class="form-group">
+                            <p:inputText class ="form-control" placeholder="Nombre " value="" />
+                        </div>
+                        <div class=" form-group">
+                            <p:inputText class ="form-control" placeholder ="Apellido" autocomplete="false" value ="" />
+                        </div>
+                        <div class="form-group">
+                            <p:inputText class ="form-control" placeholder="RFC " value="" />
+                        </div>
+                        <div class=" form-group">
+                            <p:inputText class ="form-control" placeholder ="Correo:" autocomplete="false" value ="" />
+                        </div>
+                        <div class="form-group">
+                            <p:inputText class ="form-control" placeholder="Contraseña: " value="" />
+                        </div>
+                        <p:commandButton class = "btn btn-warning" value ="Aceptar" />
+
+                    </div>
+                </div>
+
+            </h:form>
+            
+        </div>
+            
+    </h:body>
+</html>
