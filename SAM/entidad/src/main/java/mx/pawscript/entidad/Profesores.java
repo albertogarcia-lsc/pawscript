@@ -33,7 +33,9 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Profesores.findByNombre", query = "SELECT p FROM Profesores p WHERE p.nombre = :nombre")
     , @NamedQuery(name = "Profesores.findByApellido", query = "SELECT p FROM Profesores p WHERE p.apellido = :apellido")
     , @NamedQuery(name = "Profesores.findByRfc", query = "SELECT p FROM Profesores p WHERE p.rfc = :rfc")
-    , @NamedQuery(name = "Profesores.findByAdministrador", query = "SELECT p FROM Profesores p WHERE p.administrador = :administrador")})
+    , @NamedQuery(name = "Profesores.findByAdministrador", query = "SELECT p FROM Profesores p WHERE p.administrador = :administrador")
+    , @NamedQuery(name = "Profesores.findByCorreo", query = "SELECT p FROM Profesores p WHERE p.correo = :correo")
+    , @NamedQuery(name = "Profesores.findByPassword", query = "SELECT p FROM Profesores p WHERE p.password = :password")})
 public class Profesores implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -52,6 +54,12 @@ public class Profesores implements Serializable {
     private String rfc;
     @Column(name = "Administrador")
     private Boolean administrador;
+    @Basic(optional = false)
+    @Column(name = "correo")
+    private String correo;
+    @Basic(optional = false)
+    @Column(name = "password")
+    private String password;
     @JoinTable(name = "usuarios_unidades", joinColumns = {
         @JoinColumn(name = "numProfesor", referencedColumnName = "numProfesor")}, inverseJoinColumns = {
         @JoinColumn(name = "claveUnidadAprendizaje", referencedColumnName = "claveUnidadAprendizaje")})
@@ -65,11 +73,13 @@ public class Profesores implements Serializable {
         this.numProfesor = numProfesor;
     }
 
-    public Profesores(Integer numProfesor, String nombre, String apellido, String rfc) {
+    public Profesores(Integer numProfesor, String nombre, String apellido, String rfc, String correo, String password) {
         this.numProfesor = numProfesor;
         this.nombre = nombre;
         this.apellido = apellido;
         this.rfc = rfc;
+        this.correo = correo;
+        this.password = password;
     }
 
     public Integer getNumProfesor() {
@@ -112,6 +122,22 @@ public class Profesores implements Serializable {
         this.administrador = administrador;
     }
 
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @XmlTransient
     public List<Unidades> getUnidadesList() {
         return unidadesList;
@@ -143,7 +169,15 @@ public class Profesores implements Serializable {
 
     @Override
     public String toString() {
-        return "mx.pawscript.entidad.Profesores[ numProfesor=" + numProfesor + " ]";
+        return "Profesor{" +
+                "numProfesor=" + numProfesor +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", rfc='" + rfc + '\'' +
+                ", administrador=" + administrador +
+                ", correo='" + correo + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
     
 }
