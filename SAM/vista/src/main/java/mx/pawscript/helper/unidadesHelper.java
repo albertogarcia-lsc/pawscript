@@ -5,6 +5,7 @@
  */
 package mx.pawscript.helper;
 
+import java.io.Serializable;
 import mx.pawscript.entidad.Unidades;
 import mx.pawscript.integracion.ServiceFacadeLocator;
 
@@ -12,7 +13,7 @@ import mx.pawscript.integracion.ServiceFacadeLocator;
  *
  * @author alber
  */
-public class unidadesHelper {
+public class unidadesHelper implements Serializable {
        /**
      * Metodo para hacer login llamara a la instancia de usuarioFacade
      * @param unidad 
