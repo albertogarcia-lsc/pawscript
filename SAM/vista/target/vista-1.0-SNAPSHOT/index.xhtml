@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+          
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+       
+        <!-- 
+        <h1> SAM </h1>
+        <p:graphicImage url="resources/uabcl.png" class="logo-nav"/>
+
+        <p:menu styleClass="menu">
+            <p:menuitem value="Alta Profesor" url="http://www.google.com"/>
+            <p:menuitem value="Alta Unidad de Aprendizaje" url="http://www.hotmail.com" />
+            <p:menuitem value="Asignación de Unidades" url="http://mail.yahoo.com" />
+            <p:menuitem value="Consulta General" url="http://www.youtube.com" />
+            <p:menuitem value="Modificación" url="http://www.break.com" />
+            <p:menuitem value="Eliminación" url="http://www.metacafe.com" />
+            <p:menuitem value="Cerrar Sesión" url="http://www.myspace.com" />
+        </p:menu>  
+             -->
+             
+        <p:panelGrid columns="1" style="margin: auto; width: 50%;">
+            
+            <h:panelGrid columns="1" styleClass="form-altas" >
+                <h:outputLabel for="numProfesor" value="Numero de Profesor: " />
+                    <p:inputText id="numProfesor" />
+                <h:outputLabel for="nombre" value="Nombre: " />
+                    <p:inputText id="nombre" />
+                <h:outputLabel for="apellido" value="Apellido: " />
+                    <p:inputText id="apellido" />
+                <h:outputLabel for="rfc" value="RFC: " />
+                <p:inputText id="rfc" />
+            </h:panelGrid>
+            
+             <p:commandButton value="Enviar" style="background-color: #D0982A; border-radius: 10px; color: white;"/>
+             
+        </p:panelGrid>
+                   
+    </h:body>
+    
+    <style>
+
+        .form-altas {
+            text-align: center;
+            width: 100%;
+            border: none;
+         }
+         
+         .ui-inputfield {
+            width: 100%;
+            padding: 5px;
+          }
+
+        .ui-button {
+            width: 100%;
+            font-size: 16px;
+            padding: 10px;
+        }
+        
+        .nav {
+           background-color: #4caf50;
+           border: none;
+        }
+        
+        .logo-nav {
+            width: 10%;
+            float: right;
+        }
+        
+        .menu {
+               background: none;
+               background-color: #cccccc;
+               border-radius: 5px;
+               padding: 10px;
+               outline: none;
+               box-shadow: none;
+               
+        }
+        
+        .menu .ui-menuitem-link {
+               padding: 8px 10px;
+               display: block;
+               text-decoration: none;
+               outline: none !important;
+               box-shadow: none !important;
+           }
+
+        .menu .ui-menuitem-link:hover {
+             background: none;
+             background-color: #b0b0b0; 
+        }
+
+        .menu .ui-menuitem {
+             margin-bottom: 20px;
+        }
+        
+    </style>
+</html>
+
