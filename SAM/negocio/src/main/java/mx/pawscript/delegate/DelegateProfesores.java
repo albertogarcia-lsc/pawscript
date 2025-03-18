@@ -32,6 +32,13 @@ public class DelegateProfesores {
         }
         return usuario;
     }
+    /**
+     * Metodo para verificar si el usuario esta registrado en la bd
+     * @param profesor
+     */
+    public void registrarProfesor(Profesores profesor) {
+        ServiceLocator.getInstanceProfesoresDAO().save(profesor);
+    }
     
     /**
      * Metodo de ejemplo para guardar Usuario
