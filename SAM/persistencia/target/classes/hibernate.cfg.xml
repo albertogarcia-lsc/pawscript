@@ -26,3 +26,4 @@
 <mapping class="mx.pawscript.entidad.Unidades"/>
 </session-factory>
 </hibernate-configuration>
+

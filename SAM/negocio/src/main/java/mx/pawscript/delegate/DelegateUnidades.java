@@ -5,21 +5,64 @@
  */
 package mx.pawscript.delegate;
 
+import java.util.List;
 import mx.pawscript.entidad.Unidades;
 import mx.pawscript.integracion.ServiceLocator;
 
 /**
  *
- * @author EduardoCardona <>
+ * @author albert
  */
 public class DelegateUnidades {
     
     /**
-     * Metodo de ejemplo para guardar Alumno
-     * @param alumno de tipo usuario con id 0 para que se cree un id nuevo
+     * Metodo para dar de alta unidad
+     * @param unidad
      */
-    public void saveUnidades(Unidades unidad){
+    public void registrarUnidad(Unidades unidad) {
         ServiceLocator.getInstanceUnidadesDAO().save(unidad);
     }
     
+    /**
+     * Metodo para validaciones
+     * @param unidad
+     */
+    public int validacionesUnidad(Unidades unidad){
+        
+       
+        if(unidad.getClaveUnidadAprendizaje() == null){
+            return 6;
+        }
+        if(unidad.getNombreUnidad().isEmpty()){
+            return 7;
+        }
+        if(unidad.getHorasClase() == null){
+            return 8;
+        }
+        if(unidad.getHorasTaller() == null){
+            return 9;
+        }
+        if(unidad.getHorasLaboratorio() == null){
+            return 10;
+        }
+        List<Unidades> claveUnidadDuplicado = ServiceLocator.getInstanceUnidadesDAO().findByOneParameter(unidad.getClaveUnidadAprendizaje().toString(), "claveUnidadAprendizaje");
+        if (claveUnidadDuplicado != null && !claveUnidadDuplicado.isEmpty()) {
+            return 2;
+        }
+        
+        if(unidad.getClaveUnidadAprendizaje() <= 0){
+            return 11;
+        }
+        if(unidad.getHorasClase() < 0){
+            return 12;
+        }
+        if(unidad.getHorasTaller() < 0){
+            return 13;
+        }
+        if(unidad.getHorasLaboratorio() < 0){
+            return 14;
+        }
+        
+        return 1;
+    }
 }

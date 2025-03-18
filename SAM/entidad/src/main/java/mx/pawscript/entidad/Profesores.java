@@ -54,10 +54,8 @@ public class Profesores implements Serializable {
     private String rfc;
     @Column(name = "Administrador")
     private Boolean administrador;
-    @Basic(optional = false)
     @Column(name = "correo")
     private String correo;
-    @Basic(optional = false)
     @Column(name = "password")
     private String password;
     @JoinTable(name = "usuarios_unidades", joinColumns = {
@@ -73,13 +71,11 @@ public class Profesores implements Serializable {
         this.numProfesor = numProfesor;
     }
 
-    public Profesores(Integer numProfesor, String nombre, String apellido, String rfc, String correo, String password) {
+    public Profesores(Integer numProfesor, String nombre, String apellido, String rfc) {
         this.numProfesor = numProfesor;
         this.nombre = nombre;
         this.apellido = apellido;
         this.rfc = rfc;
-        this.correo = correo;
-        this.password = password;
     }
 
     public Integer getNumProfesor() {
@@ -169,15 +165,7 @@ public class Profesores implements Serializable {
 
     @Override
     public String toString() {
-        return "Profesor{" +
-                "numProfesor=" + numProfesor +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", rfc='" + rfc + '\'' +
-                ", administrador=" + administrador +
-                ", correo='" + correo + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return "mx.pawscript.entidad.Profesores[ numProfesor=" + numProfesor + " ]";
     }
     
 }
