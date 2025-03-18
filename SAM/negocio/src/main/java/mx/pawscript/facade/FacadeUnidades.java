@@ -20,8 +20,11 @@ public class FacadeUnidades {
         this.delegateUnidades = new DelegateUnidades();
     }
     
-    public void guardarAlumno(Unidades alumno){
-        delegateUnidades.saveUnidades(alumno);
+    public void altaUnidad(Unidades unidad) {
+        delegateUnidades.registrarUnidad(unidad);
     }
     
+    public int validarUnidad(Unidades unidad) {
+        return delegateUnidades.validacionesUnidad(unidad);
+    }
 }

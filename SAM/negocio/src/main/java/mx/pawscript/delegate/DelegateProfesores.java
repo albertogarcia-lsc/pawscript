@@ -13,7 +13,7 @@ import mx.pawscript.integracion.ServiceLocator;
 
 /**
  *
- * @author EduardoCardona <>
+ * @author alber
  */
 public class DelegateProfesores {
     
@@ -35,13 +35,16 @@ public class DelegateProfesores {
         return usuario;
     }
     /**
-     * Metodo para verificar si el usuario esta registrado en la bd
+     * Metodo para registrar profesor
      * @param profesor
      */
     public void registrarProfesor(Profesores profesor) {
         ServiceLocator.getInstanceProfesoresDAO().save(profesor);
     }
-    
+    /**
+     * Metodo para validaciones
+     * @param profesor
+     */
     public int validacionesAlta(Profesores profesor){
         String regexPersonaFisica = "^[A-ZÑ&]{4}\\d{6}[A-Z0-9]{3}$";
         String regexPersonaMoral = "^[A-ZÑ&]{3}\\d{6}[A-Z0-9]{3}$";
