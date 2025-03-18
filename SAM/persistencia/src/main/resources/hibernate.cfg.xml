@@ -24,7 +24,7 @@
 
 <!-- Nota: Aqui deben ir todas las entidades que se formaron de su base de
 datos en este caso se crearon las siguiente -->
-<mapping class="mx.desarrollo.entidad.Alumno"/>
-<mapping class="mx.desarrollo.entidad.Usuario"/>
+<mapping class="mx.pawscript.entidad.Profesores"/>
+<mapping class="mx.pawscript.entidad.Unidades"/>
 </session-factory>
 </hibernate-configuration>

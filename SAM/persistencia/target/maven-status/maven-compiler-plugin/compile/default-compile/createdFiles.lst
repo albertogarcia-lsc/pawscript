@@ -1,0 +1,6 @@
+mx\pawscript\persistencia\HibernateUtil.class
+mx\pawscript\DAO\ProfesoresDAO.class
+mx\pawscript\persistencia\InterfaceDAO.class
+mx\pawscript\integracion\ServiceLocator.class
+mx\pawscript\persistencia\AbstractDAO.class
+mx\pawscript\DAO\UnidadesDAO.class

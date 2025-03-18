@@ -1,0 +1,5 @@
+mx\pawscript\delegate\DelegateProfesores.class
+mx\pawscript\facade\FacadeUnidades.class
+mx\pawscript\delegate\DelegateUnidades.class
+mx\pawscript\integracion\ServiceFacadeLocator.class
+mx\pawscript\facade\FacadeProfesores.class
