@@ -31,22 +31,22 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="Nombre:" />
-                    <h:inputText value="#{profesorBeanUI.profesor.nombre}" required="true"/>
+                    <h:inputText value="#{profesorBeanUI.profesor.nombre}"/>
 
                     <h:outputLabel value="Apellido:" />
-                    <h:inputText value="#{profesorBeanUI.profesor.apellido}" required="true"/>
+                    <h:inputText value="#{profesorBeanUI.profesor.apellido}"/>
 
                     <h:outputLabel value="RFC:" />
-                    <h:inputText value="#{profesorBeanUI.profesor.rfc}" required="true"/>
+                    <h:inputText value="#{profesorBeanUI.profesor.rfc}"/>
                     
                     <h:outputLabel value="Administrador:" />
                     <p:selectBooleanCheckbox value="#{profesorBeanUI.profesor.administrador}"/>
 
                     <h:outputLabel value="Correo:" />
-                    <h:inputText value="#{profesorBeanUI.profesor.correo}" required="true"/>
+                    <h:inputText value="#{profesorBeanUI.profesor.correo}"/>
 
                     <h:outputLabel value="Password:" />
-                    <h:inputSecret value="#{profesorBeanUI.profesor.password}" required="true"/>
+                    <h:inputSecret value="#{profesorBeanUI.profesor.password}"/>
 
                     <h:commandButton value="Alta" action="#{profesorBeanUI.alta}" />
                 </h:panelGrid>
