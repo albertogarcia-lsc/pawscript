@@ -40,6 +40,10 @@ public class DelegateProfesores {
         ServiceLocator.getInstanceProfesoresDAO().save(profesor);
     }
     
+    public Profesores RFCexistente(String rfc) {
+        return ServiceLocator.getInstanceProfesoresDAO().findByOneParameterUnique(rfc, "rfc");
+    }
+    
     /**
      * Metodo de ejemplo para guardar Usuario
      * @param usuario de tipo usuario con id 0 para poder que se cree un id nuevo

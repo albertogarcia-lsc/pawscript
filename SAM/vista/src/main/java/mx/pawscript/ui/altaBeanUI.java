@@ -13,6 +13,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.persistence.NonUniqueResultException;
 import mx.pawscript.entidad.Profesores;
 import mx.pawscript.helper.profesorHelper;
 /**
@@ -37,9 +38,12 @@ public class altaBeanUI implements Serializable{
     
     public void alta() throws IOException {
         try {
-            ProfesorHelper.alta(profesor);
+                System.out.println(ProfesorHelper.rfcExistente(profesor));
+                ProfesorHelper.alta(profesor);
+                profesor = new Profesores();
+                System.out.println("Exito");
         } catch (Exception e) {
-
+                
         }
     }
     
