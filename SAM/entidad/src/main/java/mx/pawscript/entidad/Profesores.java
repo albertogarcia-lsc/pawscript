@@ -169,7 +169,15 @@ public class Profesores implements Serializable {
 
     @Override
     public String toString() {
-        return "mx.pawscript.entidad.Profesores[ numProfesor=" + numProfesor + " ]";
+        return "Profesor{" +
+                "numProfesor=" + numProfesor +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", rfc='" + rfc + '\'' +
+                ", administrador=" + administrador +
+                ", correo='" + correo + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
     
 }

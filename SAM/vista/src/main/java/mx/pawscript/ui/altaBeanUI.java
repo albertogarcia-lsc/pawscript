@@ -15,6 +15,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import mx.pawscript.entidad.Profesores;
 import mx.pawscript.helper.profesorHelper;
+
 /**
  *
  * @author alber
@@ -37,12 +38,60 @@ public class altaBeanUI implements Serializable{
     
     public void alta() throws IOException {
         try {
-            System.out.println("Prueba alta");
-            ProfesorHelper.alta(profesor);
+            FacesMessage messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Éxito", "Profesor agregado correctamente.");
+            switch(ProfesorHelper.validarAlta(profesor)){
+                case 1:
+                    ProfesorHelper.alta(profesor);
+                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Éxito", "Profesor agregado correctamente.");
+                    FacesContext.getCurrentInstance().addMessage(null, messages);
+                break;
+                case 2:
+                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El RFC no sigue el formato correcto.");
+                    FacesContext.getCurrentInstance().addMessage(null, messages);
+                break;
+                case 3:
+                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El RFC ya esta registrado.");
+                    FacesContext.getCurrentInstance().addMessage(null, messages);
+                break;
+                case 4:
+                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El número de profesor se encuentra ya registrado.");
+                    FacesContext.getCurrentInstance().addMessage(null, messages);
+                break;
+                case 5:
+                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El correo electronico no sigue el formato correcto.");
+                    FacesContext.getCurrentInstance().addMessage(null, messages);
+                break;
+                case 6:
+                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El campo numero profesor esta vacio");
+                    FacesContext.getCurrentInstance().addMessage(null, messages);
+                break;
+                case 7:
+                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El campo nombre profesor esta vacio");
+                    FacesContext.getCurrentInstance().addMessage(null, messages);
+                break;
+                case 8:
+                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El campo apellido profesor esta vacio");
+                    FacesContext.getCurrentInstance().addMessage(null, messages);
+                break;
+                case 9:
+                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El campo RFC esta vacio");
+                    FacesContext.getCurrentInstance().addMessage(null, messages);
+                break;
+                case 10:
+                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El campo correo electronico esta vacio");
+                    FacesContext.getCurrentInstance().addMessage(null, messages);
+                break;
+                case 11:
+                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "El campo contraseña esta vacio");
+                    FacesContext.getCurrentInstance().addMessage(null, messages);
+                break;
+            }
+            
         } catch (Exception e) {
 
         }
     }
+    
     
         // Getter y Setter
     public Profesores getProfesor() {

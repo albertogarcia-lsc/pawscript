@@ -37,6 +37,10 @@ public class FacadeProfesores {
         delegateProfesores.registrarProfesor(profesor);
     }
     
+    public int validarAlta(Profesores profesor) {
+        return delegateProfesores.validacionesAlta(profesor);
+    }
+    
     /**
      * Metodo de ejemplo para guardar Usuario
      * @param profesor

@@ -6,6 +6,8 @@
 package mx.pawscript.delegate;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import mx.pawscript.entidad.Profesores;
 import mx.pawscript.integracion.ServiceLocator;
 
@@ -38,6 +40,51 @@ public class DelegateProfesores {
      */
     public void registrarProfesor(Profesores profesor) {
         ServiceLocator.getInstanceProfesoresDAO().save(profesor);
+    }
+    
+    public int validacionesAlta(Profesores profesor){
+        String regexPersonaFisica = "^[A-ZÑ&]{4}\\d{6}[A-Z0-9]{3}$";
+        String regexPersonaMoral = "^[A-ZÑ&]{3}\\d{6}[A-Z0-9]{3}$";
+        System.out.println(profesor);
+        
+        if(profesor.getNumProfesor() == null){
+            return 6;
+        }
+        if(profesor.getNombre().isEmpty()){
+            return 7;
+        }
+        if(profesor.getApellido().isEmpty()){
+            return 8;
+        }
+        if(profesor.getRfc().isEmpty()){
+            return 9;
+        }
+        if(profesor.getCorreo().isEmpty()){
+            return 10;
+        }
+        if(profesor.getPassword().isEmpty()){
+            return 11;
+        }
+
+        if(!profesor.getRfc().matches(regexPersonaFisica) && !profesor.getRfc().matches(regexPersonaMoral)){
+            return 2;
+        }
+        
+        List<Profesores> rfcDuplicado = ServiceLocator.getInstanceProfesoresDAO().findByOneParameter(profesor.getRfc(), "rfc");
+        if (rfcDuplicado != null && !rfcDuplicado.isEmpty()) {
+            return 3;
+        }
+        
+        List<Profesores> numProfe = ServiceLocator.getInstanceProfesoresDAO().findByOneParameter(profesor.getNumProfesor().toString(), "numProfesor");
+        if (numProfe != null && !numProfe.isEmpty()) {
+            return 4;
+        }
+        
+        if (!Pattern.compile("^([0-9a-zA-Z]+[-._+&])*[0-9a-zA-Z]+@([-0-9a-zA-Z]+[.])+[a-zA-Z]{2,6}$").matcher(profesor.getCorreo()).matches()) {
+           return 5;
+        }
+        
+        return 1;
     }
     
     /**
