@@ -8,17 +8,35 @@
 
     <h:head>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="style.css" rel="stylesheet" type="text/css"/>
-        <style>
-            
-            *{
-                text-align: center;
-            }
-            .center{
-                float: none;
-                margin: 0 auto;
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+        <h:outputStylesheet name="style.css"/>
+        <style>  
+         .btn-link {
+            vertical-align: middle; 
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 20px;
+            margin-top: 10px;
+            margin-left: 5px;
+            border-right: 1px solid white; 
+        }
+     
+         .btn-link:hover {
+            color: white;
+            text-decoration: none;
+            border-right: 1px solid white; 
+        }
                 
-            }
+        .fa-home{
+            font-size: 40px;
+            margin-left: 1%;
+            vertical-align: middle; 
+        }
+        
+        .panel-header{
+            text-align: center;
+        }
             
            
             div.login{
@@ -29,11 +47,25 @@
                 right: 0;
                 height: 65%;
                 width: 35%;
-                padding: 25px;
+                padding: 35px;
                 margin: auto;
                 background: white;
                 border-radius: 5px;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            
+            .menu .ui-menuitem:last-child {
+                border-top: 1px solid gray;
+                margin-top: 40px;
+                padding-top: 10px;  
+            }   
+            
+            .row{
+                float:right;
+            }
+            
+            .titulo{
+                text-align: center;
             }
 
             .form-control:focus{
@@ -55,40 +87,65 @@
     </h:head>
 
     <h:body>
-        <div class = "row">
-                    <h:form>
-                        <p:commandButton class="btn btn-success" value="Regresar" />
-
-                        <p:messages id="messages" showDetail="true" showSummary="false" />
-                        <div class="login">
-                            <div class="panel-header">
-                                <p:outputLabel value="ALTA DE PROFESOR" />
-                            </div>
-                            <div class="panel-body">
-                                <div class="form-group">
-                                    <p:inputText class="form-control" placeholder="Numero de Profesor" autocomplete="false" value="#{profesorBeanUI.profesor.numProfesor}"/>
-                                </div>
-                                <div class="form-group">
-                                    <p:inputText class="form-control" placeholder="Nombre" value="#{profesorBeanUI.profesor.nombre}" />
-                                </div>
-                                <div class="form-group">
-                                    <p:inputText class="form-control" placeholder="Apellido" autocomplete="false" value="#{profesorBeanUI.profesor.apellido}" />
-                                </div>
-                                <div class="form-group">
-                                    <p:inputText class="form-control" placeholder="RFC" value="#{profesorBeanUI.profesor.rfc}" />
-                                </div>
-                                <div class="form-group">
-                                    <p:inputText class="form-control" placeholder="Correo" autocomplete="false" value="#{profesorBeanUI.profesor.correo}" />
-                                </div>
-                                <div class="form-group">
-                                    <p:inputText class="form-control" placeholder="Contraseña" value="#{profesorBeanUI.profesor.password}" />
-                                </div>
-                                
-                                <p:commandButton class="btn btn-warning" value="Aceptar" actionListener="#{profesorBeanUI.alta}" update="messages"/>
-                            </div>
-                        </div>
-                    </h:form>
+        <div class="nav">
+            <i class="fa fa-home"></i>
+            <h:link value="Página Principal" class="btn btn-link" outcome="login?faces-redirect=true"/>
+            <p:graphicImage url="resources/uabc-logo.png" class="logo-nav"/>
+            <p:outputLabel value="SISTEMA DE ASIGNACIÓN DE UNIDADES DE APRENDIZAJE" class="title"/>
         </div>
+       
+        <div class="container" style="width: 100%;">
             
+        <div class="aside" >  
+            <h:form>
+            <p:menu class="menu">
+                 <p:submenu label="Profesor" class="submenu">
+                    <p:menuitem value="Alta" url="altaProfesor.xhtml" icon="fa fa-user-plus"/>
+                    <p:menuitem value="Consulta" url="http://www.youtube.com" icon="fa fa-search"/>
+                    <p:menuitem value="Eliminar" url="http://www.metacafe.com" icon="fa fa-trash"/>
+                </p:submenu>
+                <p:submenu label="Unidad de Aprendizaje" styleClass="submenu">
+                    <p:menuitem value="Alta" url="altaUnidad.xhtml" icon="fa fa-plus"/>
+                    <p:menuitem value="Asignación" url="http://mail.yahoo.com" icon="fa fa-tasks"/>
+                    <p:menuitem value="Modificación" url="http://www.break.com" icon="fa fa-pencil"/>
+                </p:submenu>
+
+                 <p:menuitem value="Cerrar Sesión" url="login.xhtml" icon="fa fa-power-off"/>
+            </p:menu> 
+            </h:form>
+        </div>
+            <div class="row">
+                <h:form>
+                    <p:messages id="messages" showDetail="true" showSummary="false" closable="true" style="position: absolute; top: 50px; right: 20px;"/>
+                       <div class="login">
+                                <div class="panel-header">
+                                    <p:outputLabel value="ALTA DE PROFESOR"/>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <p:inputText class="form-control" placeholder="Número de Profesor" autocomplete="false" value="#{profesorBeanUI.profesor.numProfesor}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <p:inputText class="form-control" placeholder="Nombre" value="#{profesorBeanUI.profesor.nombre}" />
+                                    </div>
+                                    <div class="form-group">
+                                        <p:inputText class="form-control" placeholder="Apellido" autocomplete="false" value="#{profesorBeanUI.profesor.apellido}" />
+                                    </div>
+                                    <div class="form-group">
+                                        <p:inputText class="form-control" placeholder="RFC" value="#{profesorBeanUI.profesor.rfc}" />
+                                    </div>
+                                    <div class="form-group">
+                                        <p:inputText class="form-control" placeholder="Correo" autocomplete="false" value="#{profesorBeanUI.profesor.correo}" />
+                                    </div>
+                                    <div class="form-group">
+                                        <p:inputText class="form-control" placeholder="Contraseña" value="#{profesorBeanUI.profesor.password}" />
+                                    </div>
+
+                                    <p:commandButton class="btn btn-warning" value="Aceptar" actionListener="#{profesorBeanUI.alta}" update="messages"/>
+                               </div>
+                         </div>
+                  </h:form>
+            </div>
+        </div>
     </h:body>
 </html>
