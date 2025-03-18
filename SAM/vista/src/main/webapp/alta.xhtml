@@ -7,111 +7,124 @@
           
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-       
-        <!-- 
-        <h1> SAM </h1>
-        <p:graphicImage url="resources/uabcl.png" class="logo-nav"/>
-
-        <p:menu styleClass="menu">
-            <p:menuitem value="Alta Profesor" url="http://www.google.com"/>
-            <p:menuitem value="Alta Unidad de Aprendizaje" url="http://www.hotmail.com" />
-            <p:menuitem value="Asignación de Unidades" url="http://mail.yahoo.com" />
-            <p:menuitem value="Consulta General" url="http://www.youtube.com" />
-            <p:menuitem value="Modificación" url="http://www.break.com" />
-            <p:menuitem value="Eliminación" url="http://www.metacafe.com" />
-            <p:menuitem value="Cerrar Sesión" url="http://www.myspace.com" />
-        </p:menu>  
-             -->
-             
-        <p:panelGrid columns="1" style="margin: auto; width: 50%;">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+        <link rel="icon" type="image/png" href="resources/uabc-logo.png" />
+        <h:outputStylesheet name="style.css"/>
+        <style>
+         .btn-link {
+            vertical-align: middle; 
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 20px;
+            margin-top: 10px;
+            margin-left: 5px;
+            border-right: 1px solid white; 
+        }
+     
+         .btn-link:hover {
+            color: white;
+            text-decoration: none;
+            border-right: 1px solid white; 
+        }
+                
+        .fa-home{
+            font-size: 40px;
+            margin-left: 1%;
+            vertical-align: middle; 
+        }
             
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="Nombre:" />
-                    <h:inputText value="#{profesorBeanUI.profesor.nombre}" required="true"/>
-
-                    <h:outputLabel value="Apellido:" />
-                    <h:inputText value="#{profesorBeanUI.profesor.apellido}" required="true"/>
-
-                    <h:outputLabel value="RFC:" />
-                    <h:inputText value="#{profesorBeanUI.profesor.rfc}" required="true"/>
-                    
-                    <h:outputLabel value="Administrador:" />
-                    <p:selectBooleanCheckbox value="#{profesorBeanUI.profesor.administrador}"/>
-
-                    <h:outputLabel value="Correo:" />
-                    <h:inputText value="#{profesorBeanUI.profesor.correo}" required="true"/>
-
-                    <h:outputLabel value="Password:" />
-                    <h:inputSecret value="#{profesorBeanUI.profesor.password}" required="true"/>
-
-                    <h:commandButton value="Alta" action="#{profesorBeanUI.alta}" />
-                </h:panelGrid>
-            </h:form>
-             
-        </p:panelGrid>
-                   
-    </h:body>
-    
-    <style>
-
-        .form-altas {
-            text-align: center;
+        .form-input {
             width: 100%;
-            border: none;
-         }
-         
-         .ui-inputfield {
-            width: 100%;
-            padding: 5px;
-          }
-
-        .ui-button {
-            width: 100%;
-            font-size: 16px;
             padding: 10px;
+            border: 1px solid lightsteelblue;
+            border-radius: 5px;
+            font-size: 14px;
+            box-shadow: none;
+        }
+            
+        .form-label-col, .form-input-col {
+            padding-bottom: 10px; 
         }
         
-        .nav {
-           background-color: #4caf50;
-           border: none;
+        .btn-warning {
+            font-weight: bold;
+            width: 80%;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 5px;
         }
         
-        .logo-nav {
-            width: 10%;
-            float: right;
-        }
-        
-        .menu {
-               background: none;
-               background-color: #cccccc;
-               border-radius: 5px;
-               padding: 10px;
-               outline: none;
-               box-shadow: none;
-               
-        }
-        
-        .menu .ui-menuitem-link {
-               padding: 8px 10px;
-               display: block;
-               text-decoration: none;
-               outline: none !important;
-               box-shadow: none !important;
-           }
+        .menu .ui-menuitem:last-child {
+            border-top: 1px solid gray;
+            margin-top: 40px;
+            padding-top: 10px;  
+        }                     
+   </style>
+        <title>SAM - Alta de Profesor</title>
+    </h:head>
+    <h:body>                 
+        <div class="nav">
+            <i class="fa fa-home"></i>
+            <h:commandButton value="Página Principal" class="btn btn-link" action="indexAdmin.xhtml"/>
+            <p:graphicImage url="resources/uabc-logo.png" class="logo-nav"/>
+            <p:outputLabel value="SISTEMA DE ASIGNACIÓN DE UNIDADES DE APRENDIZAJE" class="title"/>
+        </div>
+       
+        <div class="container" style="width: 100%;">
+            
+        <div class="aside" >
+            
+    <p:menu class="menu">
+         <p:submenu label="Profesor" class="submenu">
+            <p:menuitem value="Alta" url="alta.xhtml" icon="fa fa-user-plus"/>
+            <p:menuitem value="Consulta" url="http://www.youtube.com" icon="fa fa-search"/>
+            <p:menuitem value="Eliminar" url="http://www.metacafe.com" icon="fa fa-trash"/>
+        </p:submenu>
+        <p:submenu label="Unidad de Aprendizaje" styleClass="submenu">
+            <p:menuitem value="Alta" url="http://www.hotmail.com" icon="fa fa-plus"/>
+            <p:menuitem value="Asignación" url="http://mail.yahoo.com" icon="fa fa-tasks"/>
+            <p:menuitem value="Modificación" url="http://www.break.com" icon="fa fa-pencil"/>
+        </p:submenu>
 
-        .menu .ui-menuitem-link:hover {
-             background: none;
-             background-color: #b0b0b0; 
-        }
+         <p:menuitem value="Cerrar Sesión" url="login.xhtml" icon="fa fa-power-off"/>
+    </p:menu>
+            
+        </div>
+           
+            <div class="main">
+                <div class="card">
+                    <p:outputLabel value="Ingrese los siguientes datos" class="header"/>
+                        <h:form>
+                            <h:panelGrid columns="2" styleClass="formulario" columnClasses="form-label-col, form-input-col">
+                                <p:outputLabel value="Número de Profesor" class="form-label" />
+                                <p:inputText value="#{profesorBeanUI.profesor.numProfesor}" required="true"  styleClass="form-input" placeholder="ingresa número del profesor"/>
+                                
+                                <p:outputLabel value="Nombre:" class="form-label" />
+                                <p:inputText value="#{profesorBeanUI.profesor.nombre}" required="true"  styleClass="form-input" placeholder="ingresa nombre del profesor"/>
+                                    
+                                <p:outputLabel value="Apellido:" class="form-label" />
+                                <p:inputText value="#{profesorBeanUI.profesor.apellido}" required="true" styleClass="form-input" placeholder="ingresa apellido del profesor"/>
 
-        .menu .ui-menuitem {
-             margin-bottom: 20px;
-        }
-        
-    </style>
+                                <h:outputLabel value="RFC:" class="form-label" />
+                                <p:inputText value="#{profesorBeanUI.profesor.rfc}" required="true" styleClass="form-input" placeholder="ingresa rfc del profesor"/>
+
+                                <p:outputLabel value="Administrador:" class="form-label"/>
+                                <p:selectBooleanCheckbox value="#{profesorBeanUI.profesor.administrador}"/>
+
+                                <p:outputLabel value="Correo:" class="form-label" />
+                                <p:inputText value="#{profesorBeanUI.profesor.correo}" required="true" styleClass="form-input" placeholder="ingresa correo"/>
+
+                                <p:outputLabel value="Password:" class="form-label" />
+                                <h:inputSecret value="#{profesorBeanUI.profesor.password}" styleClass="form-input" required="true"/>
+                            </h:panelGrid>
+                            
+                             <h:commandButton value="Alta" action="#{profesorBeanUI.alta}" class = "btn btn-warning" />
+                        </h:form>
+                 </div>
+            </div>
+        </div>
+    </h:body>
 </html>
 
