@@ -59,41 +59,37 @@
 
     <h:body>
         <div class = "row">
-           
-            <h:form>
-                
-              <p:commandButton class="btn btn-success" value ="Regresar"/>
-              
-                <div class="login">
-                    <div class="panel-header">
-                        <p:outputLabel value="ALTA DE PROFESOR" />
-                    </div>
-                    <div class="panel-body">
-                        <div class=" form-group">
-                            <p:inputText class ="form-control" placeholder ="Numero de Profesor" autocomplete="false" value ="" />
-                        </div>
-                        <div class="form-group">
-                            <p:inputText class ="form-control" placeholder="Nombre " value="" />
-                        </div>
-                        <div class=" form-group">
-                            <p:inputText class ="form-control" placeholder ="Apellido" autocomplete="false" value ="" />
-                        </div>
-                        <div class="form-group">
-                            <p:inputText class ="form-control" placeholder="RFC " value="" />
-                        </div>
-                        <div class=" form-group">
-                            <p:inputText class ="form-control" placeholder ="Correo:" autocomplete="false" value ="" />
-                        </div>
-                        <div class="form-group">
-                            <p:inputText class ="form-control" placeholder="Contraseña: " value="" />
-                        </div>
-                        <p:commandButton class = "btn btn-warning" value ="Aceptar" />
+                    <h:form>
+                        <p:commandButton class="btn btn-success" value="Regresar" />
 
-                    </div>
-                </div>
-
-            </h:form>
-            
+                        <div class="login">
+                            <div class="panel-header">
+                                <p:outputLabel value="ALTA DE PROFESOR" />
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <p:inputText class="form-control" placeholder="Numero de Profesor" autocomplete="false" value="#{profesorBeanUI.profesor.numProfesor}" />
+                                </div>
+                                <div class="form-group">
+                                    <p:inputText class="form-control" placeholder="Nombre" value="#{profesorBeanUI.profesor.nombre}" />
+                                </div>
+                                <div class="form-group">
+                                    <p:inputText class="form-control" placeholder="Apellido" autocomplete="false" value="#{profesorBeanUI.profesor.apellido}" />
+                                </div>
+                                <div class="form-group">
+                                    <p:inputText class="form-control" placeholder="RFC" value="#{profesorBeanUI.profesor.rfc}" />
+                                </div>
+                                <div class="form-group">
+                                    <p:inputText class="form-control" placeholder="Correo" autocomplete="false" value="#{profesorBeanUI.profesor.correo}" />
+                                </div>
+                                <div class="form-group">
+                                    <p:inputText class="form-control" placeholder="Contraseña" value="#{profesorBeanUI.profesor.password}" />
+                                </div>
+                                
+                                <p:commandButton class="btn btn-warning" value="Aceptar" actionListener="#{profesorBeanUI.alta}" />
+                            </div>
+                        </div>
+                    </h:form>
         </div>
             
     </h:body>
