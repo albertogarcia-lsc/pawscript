@@ -109,6 +109,7 @@
             </h:form>
         </div>
             <h:form>
+                <p:messages id="messages" showDetail="true" closable="true" style="position: absolute; top: 50px; right: 20px;" />
                 <p:selectOneMenu id="option" value="#{consultaBeanUI.idOpcionSeleccionadaMaestro}">
                     <f:selectItem itemLabel="Selecciona un profesor" itemValue=""/>
                     <f:selectItems value="#{consultaBeanUI.profesores}" var="profesor"
@@ -121,7 +122,7 @@
                                    itemLabel="#{unidad.claveUnidadAprendizaje} - #{unidad.nombreUnidad}" itemValue="#{unidad.claveUnidadAprendizaje}"/>
                 </p:selectOneMenu>
                 
-                <p:commandButton class="btn btn-warning" value ="Aceptar" actionListener="#{consultaBeanUI.alta}" />
+                <p:commandButton class="btn btn-warning" update="messages" value ="Aceptar" actionListener="#{consultaBeanUI.alta}" />
                 
                 <p:outputLabel value="Unidad seleccionada: #{consultaBeanUI.idOpcionSeleccionadaUnidad}" />
             </h:form>

@@ -8,8 +8,10 @@ package mx.pawscript.ui;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import mx.pawscript.entidad.Profesores;
 import mx.pawscript.entidad.Unidades;
 import mx.pawscript.helper.profesorHelper;
@@ -69,7 +71,18 @@ public class consultaBeanUI implements Serializable{
     }
     
     public void alta(){
-        ProfesorHelper.altaRelacion(this.getIdOpcionSeleccionadaMaestro(),this.getIdOpcionSeleccionadaUnidad());
+        FacesMessage messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Éxito", "Profesor agregado correctamente.");
+        switch(ProfesorHelper.altaRelacion(this.getIdOpcionSeleccionadaMaestro(),this.getIdOpcionSeleccionadaUnidad())){
+                case 1:
+                    ProfesorHelper.altaRelacion(idOpcionSeleccionadaMaestro, idOpcionSeleccionadaUnidad);
+                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Éxito", "Profesor agregado correctamente.");
+                    FacesContext.getCurrentInstance().addMessage(null, messages);
+                break;
+                case 2:
+                    messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "La relacion ya se encuentra registrada");
+                    FacesContext.getCurrentInstance().addMessage(null, messages);
+                break;
+        }
     }
    
 

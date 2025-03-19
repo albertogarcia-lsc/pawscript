@@ -49,8 +49,8 @@ public class FacadeProfesores {
         return delegateProfesores.obtenerProfesores();
     }
     
-    public void altaRelacion(int numProfesor, int numUnidad){
-        delegateProfesores.altaRelacion(numProfesor,numUnidad);
+    public int altaRelacion(int numProfesor, int numUnidad){
+        return delegateProfesores.altaRelacion(numProfesor,numUnidad);
     }
     
     /**

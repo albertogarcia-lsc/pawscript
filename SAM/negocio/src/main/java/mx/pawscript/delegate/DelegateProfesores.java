@@ -102,8 +102,8 @@ public class DelegateProfesores {
         return ServiceLocator.getInstanceProfesoresDAO().findAll();
     }
     
-    public void altaRelacion(int numProfesor, int numUnidad){
-        ServiceLocator.getInstanceProfesoresDAO().agregarUnidadAProfesor(numProfesor, numUnidad);
+    public int altaRelacion(int numProfesor, int numUnidad){
+        return ServiceLocator.getInstanceProfesoresDAO().agregarUnidadAProfesor(numProfesor, numUnidad);
     }
     
 }
