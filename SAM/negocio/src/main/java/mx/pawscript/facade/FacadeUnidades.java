@@ -6,6 +6,7 @@
 package mx.pawscript.facade;
 
 import java.io.Serializable;
+import java.util.List;
 import mx.pawscript.delegate.DelegateUnidades;
 import mx.pawscript.entidad.Unidades;
 
@@ -27,5 +28,9 @@ public class FacadeUnidades implements Serializable {
     
     public int validarUnidad(Unidades unidad) {
         return delegateUnidades.validacionesUnidad(unidad);
+    }
+    
+    public List<Unidades> obtenerUnidades(){
+        return delegateUnidades.obtenerUnidades();
     }
 }

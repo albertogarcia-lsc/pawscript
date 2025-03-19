@@ -96,10 +96,13 @@ public class altaBeanUI implements Serializable{
         }
     }
     
-    public List<Profesores> consultaProfesores() throws IOException {
-        return profesorHelper.consultaProfesores();
+    public List<Profesores> consultaProfesores(){
+        return ProfesorHelper.obtenerProfesores();
     }
-    
+
+    public List<Profesores> consultaProfesoresTabla(){
+        return ProfesorHelper.obtenerProfesoresTabla();
+    }    
     
         // Getter y Setter
     public Profesores getProfesor() {

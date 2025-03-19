@@ -143,6 +143,23 @@ public abstract class AbstractDAO<PK extends Serializable, T> implements Interfa
         try {
             HibernateUtil.getSession();
             HibernateUtil.beingTransaccion();
+            Query query = HibernateUtil.getSession().createQuery("from " + entityClass.getName());
+            objects = query.list();
+
+        } catch (HibernateException e) {
+            HibernateUtil.rollbackTransaction();
+        } finally {
+            HibernateUtil.closeSession();
+        }
+        return objects;
+    }
+
+    public List<T> findAllTabla() {
+        System.out.println("FindAll ----------");
+        List<T> objects = null;
+        try {
+            HibernateUtil.getSession();
+            HibernateUtil.beingTransaccion();
             Query query = HibernateUtil.getSession().createQuery("from " + entityClass.getName() + " order by nombre");
             objects = query.list();
 

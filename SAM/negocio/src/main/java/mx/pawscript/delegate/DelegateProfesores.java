@@ -46,6 +46,10 @@ public class DelegateProfesores {
         return ServiceLocator.getInstanceProfesoresDAO().findAll();
     }
     
+    public List<Profesores> consultaProfesoresTabla(){
+        return ServiceLocator.getInstanceProfesoresDAO().findAllTabla();
+    }
+    
     /**
      * Metodo para validaciones
      * @param profesor

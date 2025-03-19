@@ -51,7 +51,15 @@ public class FacadeProfesores implements Serializable {
         delegateProfesores.saveProfesor(profesor);
     }
     
-     public List<Profesores> consultaProfesores() {
+    public List<Profesores> consultaProfesores() {
         return delegateProfesores.consultaProfesores();
+    }
+    
+    public List<Profesores> consultaProfesoresTabla() {
+        return delegateProfesores.consultaProfesoresTabla();
+    }
+    
+    public int altaRelacion(int numProfesor, int numUnidad){
+        return delegateProfesores.altaRelacion(numProfesor, numUnidad);
     }
 }

@@ -29,7 +29,10 @@ public class profesorHelper implements Serializable{
     }
     
     public List<Profesores> obtenerProfesores(){
-        return ServiceFacadeLocator.getInstanceFacadeProfesores().obtenerProfesores();
+        return ServiceFacadeLocator.getInstanceFacadeProfesores().consultaProfesores();
+    }
+     public List<Profesores> obtenerProfesoresTabla(){
+        return ServiceFacadeLocator.getInstanceFacadeProfesores().consultaProfesoresTabla();
     }
     
     public int altaRelacion(int numeroProfesor, int numUnidad){
