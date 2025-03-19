@@ -60,19 +60,7 @@
             }
             
             .btn-warning{
-                text-shadow: none;
-                width: 100%;
-            }
-            
-            .btn-success{
-                text-shadow: none;
-                margin: 15px 10px; 
-                margin-left: 2%;
-                float:left;
-                width: 10%;
-            }
-            
-            .btn-danger{
+                margin-top: 20%;
                 text-shadow: none;
                 width: 100%;
             }
@@ -95,7 +83,7 @@
             <p:menu class="menu">
                  <p:submenu label="Profesor" class="submenu">
                     <p:menuitem value="Alta" url="altaProfesores.xhtml" icon="fa fa-user-plus"/>
-                    <p:menuitem value="Consulta" url="consultaGeneral.xhtml" icon="fa fa-search"/>
+                    <p:menuitem value="Consulta" url="consultaProfesores.xhtml" icon="fa fa-search"/>
                     <p:menuitem value="Eliminar" url="http://www.metacafe.com" icon="fa fa-trash"/>
                 </p:submenu>
                 <p:submenu label="Unidad de Aprendizaje" styleClass="submenu">
@@ -108,24 +96,35 @@
             </p:menu> 
             </h:form>
         </div>
-            <h:form>
-                <p:messages id="messages" showDetail="true" closable="true" style="position: absolute; top: 50px; right: 20px;" />
-                <p:selectOneMenu id="option" value="#{consultaBeanUI.idOpcionSeleccionadaMaestro}">
-                    <f:selectItem itemLabel="Selecciona un profesor" itemValue=""/>
-                    <f:selectItems value="#{consultaBeanUI.profesores}" var="profesor"
-                                   itemLabel="#{profesor.numProfesor} - #{profesor.nombre}" itemValue="#{profesor.numProfesor}"/>
-                </p:selectOneMenu>
-                
-                <p:selectOneMenu id="optionUnidades" value="#{consultaBeanUI.idOpcionSeleccionadaUnidad}">
-                    <f:selectItem itemLabel="Selecciona una unidad" itemValue=""/>
-                    <f:selectItems value="#{consultaBeanUI.unidades}" var="unidad"
-                                   itemLabel="#{unidad.claveUnidadAprendizaje} - #{unidad.nombreUnidad}" itemValue="#{unidad.claveUnidadAprendizaje}"/>
-                </p:selectOneMenu>
-                
-                <p:commandButton class="btn btn-warning" update="messages" value ="Aceptar" actionListener="#{consultaBeanUI.alta}" />
-                
-                <p:outputLabel value="Unidad seleccionada: #{consultaBeanUI.idOpcionSeleccionadaUnidad}" />
-            </h:form>
-        </div>
+             <div class="row">
+                <h:form>
+                    <p:messages id="messages" showDetail="true" closable="true" style="position: absolute; top: 50px; right: 20px;" />
+                        <div class="login">
+                         <div class="panel-header">
+                              <p:outputLabel value="ASIGNACIÓN DE UNIDADES DE APRENDIZAJE"/>
+                         </div>
+                            <div class="panel-body">
+                                <div class="form-group" style="margin-bottom: 20px;">
+                                     <p:outputLabel value="Seleccione un Profesor" style="display: block; margin-bottom: 5px; font-weight: bold;"/>
+                                        <p:selectOneMenu id="option" value="#{consultaBeanUI.idOpcionSeleccionadaMaestro}" style="width: 100%; padding: 5px;" >
+                                            <f:selectItem itemLabel="Profesor" itemValue=""/>
+                                            <f:selectItems value="#{consultaBeanUI.profesores}" var="profesor"
+                                                           itemLabel="#{profesor.numProfesor} - #{profesor.nombre}" itemValue="#{profesor.numProfesor}"/>
+                                        </p:selectOneMenu>
+                                </div>
+                                <div class="form-group" style="margin-bottom: 20px;">
+                                    <p:outputLabel value="Seleccione una Unidad de Aprendizaje" style="display: block; margin-top: 30px;  font-weight: bold;"/>
+                                        <p:selectOneMenu id="optionUnidades" value="#{consultaBeanUI.idOpcionSeleccionadaUnidad}" style="width: 100%; padding: 5px;">
+                                            <f:selectItem itemLabel="Unidad de Aprendizaje" itemValue=""/>
+                                            <f:selectItems value="#{consultaBeanUI.unidades}" var="unidad"
+                                                           itemLabel="#{unidad.claveUnidadAprendizaje} - #{unidad.nombreUnidad}" itemValue="#{unidad.claveUnidadAprendizaje}"/>
+                                        </p:selectOneMenu>
+                                </div>
+                           <p:commandButton class="btn btn-warning" update="messages" value ="Aceptar" actionListener="#{consultaBeanUI.alta}" />
+                            </div>
+                        </div>
+                </h:form>
+                </div>
+            </div>
     </h:body>
 </html>
