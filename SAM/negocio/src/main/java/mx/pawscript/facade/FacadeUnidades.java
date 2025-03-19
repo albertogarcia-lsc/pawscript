@@ -5,7 +5,7 @@
  */
 package mx.pawscript.facade;
 
-import java.util.List;
+import java.io.Serializable;
 import mx.pawscript.delegate.DelegateUnidades;
 import mx.pawscript.entidad.Unidades;
 
@@ -13,7 +13,7 @@ import mx.pawscript.entidad.Unidades;
  *
  * @author EduardoCardona <>
  */
-public class FacadeUnidades {
+public class FacadeUnidades implements Serializable {
     
     private final DelegateUnidades delegateUnidades;
 
@@ -27,9 +27,5 @@ public class FacadeUnidades {
     
     public int validarUnidad(Unidades unidad) {
         return delegateUnidades.validacionesUnidad(unidad);
-    }
-    
-     public List<Unidades> obtenerUnidades() {
-        return delegateUnidades.obtenerUnidades();
     }
 }

@@ -143,7 +143,7 @@ public abstract class AbstractDAO<PK extends Serializable, T> implements Interfa
         try {
             HibernateUtil.getSession();
             HibernateUtil.beingTransaccion();
-            Query query = HibernateUtil.getSession().createQuery("from " + entityClass.getName());
+            Query query = HibernateUtil.getSession().createQuery("from " + entityClass.getName() + " order by nombre");
             objects = query.list();
 
         } catch (HibernateException e) {
@@ -154,6 +154,28 @@ public abstract class AbstractDAO<PK extends Serializable, T> implements Interfa
         return objects;
     }
 
+    public List<T> findAllP() {
+    System.out.println("FindAll ----------");
+    List<T> objects = null;
+    try {
+        HibernateUtil.getSession();
+        HibernateUtil.beingTransaccion();
+        
+        String hql = "SELECT p FROM profesores p " +
+                     "LEFT JOIN FETCH p.unidades " +  
+                     "ORDER BY p.nombre ASC";  
+        
+        Query query = HibernateUtil.getSession().createQuery(hql);
+        objects = query.list();
+
+    } catch (HibernateException e) {
+        HibernateUtil.rollbackTransaction();
+    } finally {
+        HibernateUtil.closeSession();
+    }
+    return objects;
+}
+    
     @Override
     public List<T> executeQuery(String query) {
         System.out.println("ExecuteQuery ----------");

@@ -5,6 +5,7 @@
  */
 package mx.pawscript.integracion;
 
+import java.io.Serializable;
 import mx.pawscript.facade.FacadeUnidades;
 import mx.pawscript.facade.FacadeProfesores;
 
@@ -12,7 +13,7 @@ import mx.pawscript.facade.FacadeProfesores;
  *
  * @author EduardoCardona <>
  */
-public class ServiceFacadeLocator {
+public class ServiceFacadeLocator implements Serializable {
     
     private static FacadeUnidades facadeUnidades;
     private static FacadeProfesores facadeProfesores;

@@ -41,6 +41,11 @@ public class DelegateProfesores {
     public void registrarProfesor(Profesores profesor) {
         ServiceLocator.getInstanceProfesoresDAO().save(profesor);
     }
+    
+    public List<Profesores> consultaProfesores(){
+        return ServiceLocator.getInstanceProfesoresDAO().findAll();
+    }
+    
     /**
      * Metodo para validaciones
      * @param profesor
