@@ -59,6 +59,10 @@ public class FacadeProfesores implements Serializable {
         return delegateProfesores.consultaProfesoresTabla();
     }
     
+    public void bajaProfesor (Profesores profesor){
+        delegateProfesores.bajaProfesor(profesor);
+    }
+    
     public int altaRelacion(int numProfesor, int numUnidad){
         return delegateProfesores.altaRelacion(numProfesor, numUnidad);
     }
