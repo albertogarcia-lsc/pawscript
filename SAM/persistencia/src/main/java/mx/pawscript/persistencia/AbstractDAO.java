@@ -138,7 +138,7 @@ public abstract class AbstractDAO<PK extends Serializable, T> implements Interfa
         try {
             HibernateUtil.getSession();
             HibernateUtil.beingTransaccion();
-            Query query = HibernateUtil.getSession().createQuery("from " + entityClass.getName());
+            Query query = HibernateUtil.getSession().createQuery("from " + entityClass.getName() + " order by nombre");
             objects = query.list();
 
         } catch (HibernateException e) {
