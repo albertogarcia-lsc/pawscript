@@ -4,6 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       >
 
     <h:head>
@@ -11,7 +12,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
         <link rel="icon" type="image/png" href="resources/uabc-logo.png" />
         <h:outputStylesheet name="style.css"/>
-        <style>
+        <style>  
          .btn-link {
             vertical-align: middle; 
             color: white;
@@ -39,18 +40,16 @@
         }
 
             div.login{
-                position: absolute;
-                top:0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 65%;
-                width: 35%;
+                position: relative; 
+                width: 90%;
+                max-width: 1200px; 
+                height: auto; 
                 padding: 25px;
-                margin: auto;
+                margin: 20px auto; 
                 background: white;
                 border-radius: 5px;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                overflow: hidden; 
             }
 
             .form-control:focus{
@@ -74,14 +73,26 @@
                 text-shadow: none;
                 width: 100%;
             }
+
+            .table-container {
+                max-height: 500px; 
+                overflow-y: auto; 
+                overflow-x: auto; 
+            }
+            
+            .menu .ui-menuitem:last-child {
+                border-top: 1px solid gray;
+                margin-top: 40px;
+                padding-top: 10px;  
+            }  
         </style>
-        
-        <title>SAM - Alta de Unidad</title>
+        <title>SAM - Consulta</title>
     </h:head>
-        <h:body>
+
+    <h:body>
         <div class="nav">
             <i class="fa fa-home"></i>
-            <h:link value="Página Principal" class="btn btn-link" outcome="vistaAdministrador?faces-redirect=true"/>
+            <h:link value="Página Principal" class="btn btn-link" outcome="vistaProfesor?faces-redirect=true"/>
             <p:graphicImage url="resources/uabc-logo.png" class="logo-nav"/>
             <p:outputLabel value="SISTEMA DE ASIGNACIÓN DE UNIDADES DE APRENDIZAJE" class="title"/>
         </div>
@@ -92,48 +103,62 @@
             <h:form>
             <p:menu class="menu">
                  <p:submenu label="Profesor" class="submenu">
-                    <p:menuitem value="Alta" url="altaProfesores.xhtml" icon="fa fa-user-plus"/>
-                    <p:menuitem value="Consulta" url="consultaProfesores.xhtml" icon="fa fa-search"/>
-                    <p:menuitem value="Eliminar" url="bajasProfesores.xhtml" icon="fa fa-trash"/>
-                </p:submenu>
-                <p:submenu label="Unidad de Aprendizaje" styleClass="submenu">
-                    <p:menuitem value="Alta" url="altaUnidad.xhtml" icon="fa fa-plus"/>
-                    <p:menuitem value="Asignación" url="asignacion.xhtml" icon="fa fa-tasks"/>
-                    <p:menuitem value="Modificación" url="modificacion.xhtml" icon="fa fa-pencil"/>
+                    <p:menuitem value="Consulta" url="consulta.xhtml" icon="fa fa-search"/>
                 </p:submenu>
 
                  <p:menuitem value="Cerrar Sesión" url="login.xhtml" icon="fa fa-power-off"/>
             </p:menu> 
             </h:form>
         </div>
-            <div class = "row">
-                <h:form>
+    <h:form>
                     <p:messages id="messages" showDetail="true" closable="true" style="position: absolute; top: 50px; right: 20px;" />
                     <div class="login">
                         <div class="panel-header">
-                            <p:outputLabel value="ALTA DE UNIDAD DE APRENDIZAJE" />
+                            <p:outputLabel value="CONSULTA DE PROFESORES" />
                         </div>
                         <div class="panel-body">
-                            <div class=" form-group">
-                                <p:inputText class ="form-control" placeholder ="Clave de unidad" value="#{unidadBeanUI.unidad.claveUnidadAprendizaje}"/>
+                            <div class="table-container">
+                                <p:dataTable var="profesor" value="#{profesorBeanUI.consultaProfesoresTabla()}" paginator="true" rows="10" styleClass="table-striped">
+                                    <p:column headerText="Número de Profesor">
+                                        #{profesor.numProfesor}
+                                    </p:column>
+
+                                    <p:column headerText="Nombre">
+                                        #{profesor.nombre}
+                                    </p:column>
+
+                                    <p:column headerText="Apellido">
+                                        #{profesor.apellido}
+                                    </p:column>
+
+                                    <p:column headerText="RFC">
+                                        #{profesor.rfc}
+                                    </p:column>
+
+                                    <p:column headerText="Correo">
+                                        #{profesor.correo}
+                                    </p:column>
+
+                                    <p:column headerText="Unidades Asignadas">
+                                        <ui:repeat value="#{profesor.unidadesList}" var="unidad">
+                                            <h:outputText value="Clave: #{unidad.claveUnidadAprendizaje}" />
+                                            <br />
+                                            <h:outputText value="Nombre: #{unidad.nombreUnidad}" />
+                                            <br />
+                                            <h:outputText value="Horas Clase: #{unidad.horasClase}" />
+                                            <br />
+                                            <h:outputText value="Horas Taller: #{unidad.horasTaller}" />
+                                            <br />
+                                            <h:outputText value="Horas Laboratorio: #{unidad.horasLaboratorio}" />
+                                            <br />
+                                            <br />
+                                        </ui:repeat>
+                                    </p:column>
+                                </p:dataTable>
                             </div>
-                            <div class="form-group">
-                                <p:inputText class ="form-control" placeholder="Nombre" value="#{unidadBeanUI.unidad.nombreUnidad}" />
-                            </div>
-                            <div class=" form-group">
-                                <p:inputText class ="form-control" placeholder ="Horas clase" value ="#{unidadBeanUI.unidad.horasClase}" />
-                            </div>
-                            <div class="form-group">
-                                <p:inputText class ="form-control" placeholder="Horas taller" value="#{unidadBeanUI.unidad.horasTaller}" />
-                            </div>
-                            <div class=" form-group">
-                                <p:inputText class ="form-control" placeholder ="Horas laboratorio" value ="#{unidadBeanUI.unidad.horasLaboratorio}" />
-                            </div>
-                            <p:commandButton class="btn btn-warning" update="messages" value ="Aceptar" actionListener="#{unidadBeanUI.alta}" />
                         </div>
                     </div>
                 </h:form>
-        </div> 
         </div>
     </h:body>
 </html>

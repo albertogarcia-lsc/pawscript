@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      >
+
+    <h:head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+        <link rel="icon" type="image/png" href="resources/uabc-logo.png" />
+        <h:outputStylesheet name="style.css"/>
+        <style>  
+         .btn-link {
+            vertical-align: middle; 
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 20px;
+            margin-top: 10px;
+            margin-left: 5px;
+            border-right: 1px solid white; 
+        }
+     
+         .btn-link:hover {
+            color: white;
+            border-right: 1px solid white; 
+        }
+                
+        .fa-home{
+            font-size: 40px;
+            margin-left: 1%;
+            vertical-align: middle; 
+        }
+        
+        .panel-header{
+                font-size: 35px;
+                font-weight: bold;
+                padding: 10px 20px;
+                display: flex;
+                flex-direction: column; 
+                justify-content: center; 
+                align-items: center; 
+                height: 100%; 
+                margin: 5px 0; 
+        }
+            
+            div.login{
+                position: absolute;
+                top:0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 65%;
+                width: 35%;
+                padding: 35px;
+                margin: auto;
+                background: white;
+                border-radius: 5px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            
+            .menu .ui-menuitem:last-child {
+                border-top: 1px solid gray;
+                margin-top: 40px;
+                padding-top: 10px;  
+            }   
+
+        </style>
+        <title>SAM - Inicio</title>
+    </h:head>
+
+    <h:body>
+        <div class="nav">
+            <i class="fa fa-home"></i>
+            <h:link value="Página Principal" class="btn btn-link" outcome="vistaProfesor?faces-redirect=true"/>
+            <p:graphicImage url="resources/uabc-logo.png" class="logo-nav"/>
+            <p:outputLabel value="SISTEMA DE ASIGNACIÓN DE UNIDADES DE APRENDIZAJE" class="title"/>
+        </div>
+       
+        <div class="container" style="width: 100%;">
+            
+        <div class="aside" >  
+            <h:form>
+            <p:menu class="menu">
+                 <p:submenu label="Profesor" class="submenu">
+                    <p:menuitem value="Consulta" url="consulta.xhtml" icon="fa fa-search"/>
+                </p:submenu>
+
+                 <p:menuitem value="Cerrar Sesión" url="login.xhtml" icon="fa fa-power-off"/>
+            </p:menu> 
+            </h:form>
+        </div>
+               <div class="login">
+                      <div class="panel-header">
+                            <p:graphicImage url="resources/profesor.png" style="width: 25%;"/>
+                             <p:outputLabel value="BIENVENIDO"/>
+                             <p:outputLabel value="PROFESOR"/>
+                       </div>
+                 </div>
+        </div>
+    </h:body>
+</html>
