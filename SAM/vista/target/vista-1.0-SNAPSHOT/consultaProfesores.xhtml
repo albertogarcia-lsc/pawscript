@@ -25,7 +25,6 @@
      
          .btn-link:hover {
             color: white;
-            text-decoration: none;
             border-right: 1px solid white; 
         }
                 
@@ -85,7 +84,7 @@
     <h:body>
         <div class="nav">
             <i class="fa fa-home"></i>
-            <h:link value="Página Principal" class="btn btn-link" outcome="login?faces-redirect=true"/>
+            <h:link value="Página Principal" class="btn btn-link" outcome="vistaAdministrador?faces-redirect=true"/>
             <p:graphicImage url="resources/uabc-logo.png" class="logo-nav"/>
             <p:outputLabel value="SISTEMA DE ASIGNACIÓN DE UNIDADES DE APRENDIZAJE" class="title"/>
         </div>
@@ -98,7 +97,7 @@
                  <p:submenu label="Profesor" class="submenu">
                     <p:menuitem value="Alta" url="altaProfesores.xhtml" icon="fa fa-user-plus"/>
                     <p:menuitem value="Consulta" url="consultaProfesores.xhtml" icon="fa fa-search"/>
-                    <p:menuitem value="Eliminar" url="http://www.metacafe.com" icon="fa fa-trash"/>
+                    <p:menuitem value="Eliminar" url="bajasProfesores.xhtml" icon="fa fa-trash"/>
                 </p:submenu>
                 <p:submenu label="Unidad de Aprendizaje" styleClass="submenu">
                     <p:menuitem value="Alta" url="altaUnidad.xhtml" icon="fa fa-plus"/>
