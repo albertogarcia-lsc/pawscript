@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Profesores y Unidades</title>
+    </h:head>
+    <h:body>
+        <h1>Listado de Profesores y sus Unidades Asignadas</h1>
+
+        <p:dataTable var="profesor" value="#{profesorBeanUI.consultaProfesores()}" paginator="true" rows="10" styleClass="table-striped">
+            <p:column headerText="Número de Profesor">
+                #{profesor.numProfesor}
+            </p:column>
+
+            <p:column headerText="Nombre">
+                #{profesor.nombre}
+            </p:column>
+
+            <p:column headerText="Apellido">
+                #{profesor.apellido}
+            </p:column>
+
+            <p:column headerText="RFC">
+                #{profesor.rfc}
+            </p:column>
+
+            <p:column headerText="Correo">
+                #{profesor.correo}
+            </p:column>
+
+            <p:column headerText="Unidades Asignadas">
+                <ui:repeat value="#{profesor.unidadesList}" var="unidad">
+                    <h:outputText value="Clave: #{unidad.claveUnidadAprendizaje}" />
+                    <br />
+                    <h:outputText value="Nombre: #{unidad.nombreUnidad}" />
+                    <br />
+                    <h:outputText value="Horas Clase: #{unidad.horasClase}" />
+                    <br />
+                    <h:outputText value="Horas Taller: #{unidad.horasTaller}" />
+                    <br />
+                    <h:outputText value="Horas Laboratorio: #{unidad.horasLaboratorio}" />
+                    <br />
+                    <br />
+                </ui:repeat>
+            </p:column>
+        </p:dataTable>
+
+    </h:body>
+</html>
+

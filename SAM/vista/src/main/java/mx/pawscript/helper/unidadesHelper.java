@@ -14,6 +14,8 @@ import mx.pawscript.integracion.ServiceFacadeLocator;
  * @author alber
  */
 public class unidadesHelper implements Serializable {
+    private static final long serialVersionUID = 1L;
+
        /**
      * Metodo para hacer login llamara a la instancia de usuarioFacade
      * @param unidad 
