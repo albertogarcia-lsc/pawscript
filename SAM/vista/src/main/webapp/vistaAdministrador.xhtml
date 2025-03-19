@@ -68,29 +68,6 @@
                 padding-top: 10px;  
             }   
             
-            .row{
-                float:right;
-            }
-            
-            .titulo{
-                text-align: center;
-            }
-
-            .form-control:focus{
-                border-color:#007738;
-            }
-            .btn-warning{
-                text-shadow: none;
-                width: 100%;
-            }
-            
-            .btn-success{
-                text-shadow: none;
-                margin: 15px 10px; 
-                margin-left: 2%;
-                float:left;
-                width: 10%;
-            }
         </style>
         <title>SAM - Inicio</title>
     </h:head>
@@ -123,18 +100,13 @@
             </p:menu> 
             </h:form>
         </div>
-            <div class="row">
-                <h:form>
-                    <p:messages id="messages" showDetail="true" showSummary="false" closable="true" style="position: absolute; top: 50px; right: 20px;"/>
-                       <div class="login">
-                                <div class="panel-header">
-                                    <p:graphicImage url="resources/admin.png" style="width: 25%;"/>
-                                    <p:outputLabel value="BIENVENIDO"/>
-                                    <p:outputLabel value="ADMINISTRADOR"/>
-                               </div>
-                         </div>
-                  </h:form>
-            </div>
+              <div class="login">
+                     <div class="panel-header">
+                          <p:graphicImage url="resources/admin.png" style="width: 25%;"/>
+                          <p:outputLabel value="BIENVENIDO"/>
+                          <p:outputLabel value="ADMINISTRADOR"/>
+                     </div>
+               </div>
         </div>
     </h:body>
 </html>

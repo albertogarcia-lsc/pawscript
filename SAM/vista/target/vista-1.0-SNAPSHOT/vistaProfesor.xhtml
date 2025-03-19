@@ -46,7 +46,6 @@
                 margin: 5px 0; 
         }
             
-           
             div.login{
                 position: absolute;
                 top:0;
@@ -67,7 +66,7 @@
                 margin-top: 40px;
                 padding-top: 10px;  
             }   
-            
+
         </style>
         <title>SAM - Inicio</title>
     </h:head>
@@ -75,7 +74,7 @@
     <h:body>
         <div class="nav">
             <i class="fa fa-home"></i>
-            <h:link value="Página Principal" class="btn btn-link" outcome="vistaAdministrador?faces-redirect=true"/>
+            <h:link value="Página Principal" class="btn btn-link" outcome="vistaProfesor?faces-redirect=true"/>
             <p:graphicImage url="resources/uabc-logo.png" class="logo-nav"/>
             <p:outputLabel value="SISTEMA DE ASIGNACIÓN DE UNIDADES DE APRENDIZAJE" class="title"/>
         </div>
@@ -86,27 +85,20 @@
             <h:form>
             <p:menu class="menu">
                  <p:submenu label="Profesor" class="submenu">
-                    <p:menuitem value="Alta" url="altaProfesores.xhtml" icon="fa fa-user-plus"/>
-                    <p:menuitem value="Consulta" url="consultaProfesores.xhtml" icon="fa fa-search"/>
-                    <p:menuitem value="Eliminar" url="bajasProfesores.xhtml" icon="fa fa-trash"/>
-                </p:submenu>
-                <p:submenu label="Unidad de Aprendizaje" styleClass="submenu">
-                    <p:menuitem value="Alta" url="altaUnidad.xhtml" icon="fa fa-plus"/>
-                    <p:menuitem value="Asignación" url="asignacion.xhtml" icon="fa fa-tasks"/>
-                    <p:menuitem value="Modificación" url="modificacion.xhtml" icon="fa fa-pencil"/>
+                    <p:menuitem value="Consulta" url="consultaGeneral.xhtml" icon="fa fa-search"/>
                 </p:submenu>
 
                  <p:menuitem value="Cerrar Sesión" url="login.xhtml" icon="fa fa-power-off"/>
             </p:menu> 
             </h:form>
         </div>
-              <div class="login">
-                     <div class="panel-header">
-                          <p:graphicImage url="resources/admin.png" style="width: 25%;"/>
-                          <p:outputLabel value="BIENVENIDO"/>
-                          <p:outputLabel value="ADMINISTRADOR"/>
-                     </div>
-               </div>
+               <div class="login">
+                      <div class="panel-header">
+                            <p:graphicImage url="resources/profesor.png" style="width: 25%;"/>
+                             <p:outputLabel value="BIENVENIDO"/>
+                             <p:outputLabel value="PROFESOR"/>
+                       </div>
+                 </div>
         </div>
     </h:body>
 </html>
