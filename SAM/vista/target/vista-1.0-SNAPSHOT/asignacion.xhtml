@@ -115,12 +115,14 @@
                             <p:outputLabel value="ASIGNACIÓN DE UNIDADES - PROFESOR" />
                         </div>
                         <div class="panel-body">
+                            <!--Profesor-->
                             <div class=" form-group">
                                   <p:selectOneMenu id="combo" value="#{bean.selectedItem}">
                                         <f:selectItem itemLabel="Selecciona Profesor" itemValue="" />
                                         <f:selectItems value="#{bean.items}" var="item" itemLabel="#{item.label}" itemValue="#{item}" />
                                    </p:selectOneMenu>
                             </div>
+                            <!--Unidad-->
                             <div class=" form-group">
                                   <p:selectOneMenu id="combo" value="#{bean.selectedItem}">
                                         <f:selectItem itemLabel="Selecciona Unidad de Aprendizaje" itemValue="" />
