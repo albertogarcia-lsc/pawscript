@@ -1,53 +1,167 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
     <h:head>
-        <title>Profesores y Unidades</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+        <h:outputStylesheet name="style.css"/>
+        <style>
+         .btn-link {
+            vertical-align: middle; 
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 20px;
+            margin-top: 10px;
+            margin-left: 5px;
+            border-right: 1px solid white; 
+        }
+     
+         .btn-link:hover {
+            color: white;
+            text-decoration: none;
+            border-right: 1px solid white; 
+        }
+                
+        .fa-home{
+            font-size: 40px;
+            margin-left: 1%;
+            vertical-align: middle; 
+        }
+        
+        .panel-header{
+            text-align: center;
+        }
+
+            div.login{
+                position: absolute;
+                top:0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 80%;
+                width: 60%;
+                padding: 25px;
+                margin: auto;
+                background: white;
+                border-radius: 5px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+
+            .form-control:focus{
+                border-color:#007738;
+            }
+            
+            .btn-warning{
+                text-shadow: none;
+                width: 100%;
+            }
+            
+            .btn-success{
+                text-shadow: none;
+                margin: 15px 10px; 
+                margin-left: 2%;
+                float:left;
+                width: 10%;
+            }
+            
+            .btn-danger{
+                text-shadow: none;
+                width: 100%;
+            }
+
+            .table-container {
+                max-height: 650px;
+                overflow-y: auto;
+            }
+        </style>
+        
+        
     </h:head>
     <h:body>
-        <h1>Listado de Profesores y sus Unidades Asignadas</h1>
+        <div class="nav">
+            <i class="fa fa-home"></i>
+            <h:link value="Página Principal" class="btn btn-link" outcome="login?faces-redirect=true"/>
+            <p:graphicImage url="resources/uabc-logo.png" class="logo-nav"/>
+            <p:outputLabel value="SISTEMA DE ASIGNACIÓN DE UNIDADES DE APRENDIZAJE" class="title"/>
+        </div>
+       
+        <div class="container" style="width: 100%;">
+            
+        <div class="aside" >  
+            <h:form>
+            <p:menu class="menu">
+                 <p:submenu label="Profesor" class="submenu">
+                    <p:menuitem value="Alta" url="altaProfesor.xhtml" icon="fa fa-user-plus"/>
+                    <p:menuitem value="Consulta" url="consultaProfesores.xhtml" icon="fa fa-search"/>
+                    <p:menuitem value="Eliminar" url="http://www.metacafe.com" icon="fa fa-trash"/>
+                </p:submenu>
+                <p:submenu label="Unidad de Aprendizaje" styleClass="submenu">
+                    <p:menuitem value="Alta" url="altaUnidad.xhtml" icon="fa fa-plus"/>
+                    <p:menuitem value="Asignación" url="http://mail.yahoo.com" icon="fa fa-tasks"/>
+                    <p:menuitem value="Modificación" url="http://www.break.com" icon="fa fa-pencil"/>
+                </p:submenu>
 
-        <p:dataTable var="profesor" value="#{profesorBeanUI.consultaProfesores()}" paginator="true" rows="10" styleClass="table-striped">
-            <p:column headerText="Número de Profesor">
-                #{profesor.numProfesor}
-            </p:column>
+                 <p:menuitem value="Cerrar Sesión" url="login.xhtml" icon="fa fa-power-off"/>
+            </p:menu> 
+            </h:form>
+        </div>
+            <div class = "row">
+                <h:form>
+                    <p:messages id="messages" showDetail="true" closable="true" style="position: absolute; top: 50px; right: 20px;" />
+                    <div class="login">
+                        <div class="panel-header">
+                            <p:outputLabel value="CONSULTA DE PROFESORES" />
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-container">
+                                <p:dataTable var="profesor" value="#{profesorBeanUI.consultaProfesores()}" paginator="true" rows="10" styleClass="table-striped">
+                                    <p:column headerText="Número de Profesor">
+                                        #{profesor.numProfesor}
+                                    </p:column>
 
-            <p:column headerText="Nombre">
-                #{profesor.nombre}
-            </p:column>
+                                    <p:column headerText="Nombre">
+                                        #{profesor.nombre}
+                                    </p:column>
 
-            <p:column headerText="Apellido">
-                #{profesor.apellido}
-            </p:column>
+                                    <p:column headerText="Apellido">
+                                        #{profesor.apellido}
+                                    </p:column>
 
-            <p:column headerText="RFC">
-                #{profesor.rfc}
-            </p:column>
+                                    <p:column headerText="RFC">
+                                        #{profesor.rfc}
+                                    </p:column>
 
-            <p:column headerText="Correo">
-                #{profesor.correo}
-            </p:column>
+                                    <p:column headerText="Correo">
+                                        #{profesor.correo}
+                                    </p:column>
 
-            <p:column headerText="Unidades Asignadas">
-                <ui:repeat value="#{profesor.unidadesList}" var="unidad">
-                    <h:outputText value="Clave: #{unidad.claveUnidadAprendizaje}" />
-                    <br />
-                    <h:outputText value="Nombre: #{unidad.nombreUnidad}" />
-                    <br />
-                    <h:outputText value="Horas Clase: #{unidad.horasClase}" />
-                    <br />
-                    <h:outputText value="Horas Taller: #{unidad.horasTaller}" />
-                    <br />
-                    <h:outputText value="Horas Laboratorio: #{unidad.horasLaboratorio}" />
-                    <br />
-                    <br />
-                </ui:repeat>
-            </p:column>
-        </p:dataTable>
-
+                                    <p:column headerText="Unidades Asignadas">
+                                        <ui:repeat value="#{profesor.unidadesList}" var="unidad">
+                                            <h:outputText value="Clave: #{unidad.claveUnidadAprendizaje}" />
+                                            <br />
+                                            <h:outputText value="Nombre: #{unidad.nombreUnidad}" />
+                                            <br />
+                                            <h:outputText value="Horas Clase: #{unidad.horasClase}" />
+                                            <br />
+                                            <h:outputText value="Horas Taller: #{unidad.horasTaller}" />
+                                            <br />
+                                            <h:outputText value="Horas Laboratorio: #{unidad.horasLaboratorio}" />
+                                            <br />
+                                            <br />
+                                        </ui:repeat>
+                                    </p:column>
+                                </p:dataTable>
+                            </div>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
     </h:body>
 </html>
-
