@@ -9,6 +9,7 @@
     <h:head>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+        <link rel="icon" type="image/png" href="resources/uabc-logo.png" />
         <h:outputStylesheet name="style.css"/>
         <style>
          .btn-link {
@@ -39,18 +40,16 @@
         }
 
             div.login{
-                position: absolute;
-                top:0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 80%;
-                width: 60%;
+                position: relative; 
+                width: 90%;
+                max-width: 1200px; 
+                height: auto; 
                 padding: 25px;
-                margin: auto;
+                margin: 20px auto; 
                 background: white;
                 border-radius: 5px;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                overflow: hidden; 
             }
 
             .form-control:focus{
@@ -76,12 +75,12 @@
             }
 
             .table-container {
-                max-height: 650px;
-                overflow-y: auto;
+                max-height: 500px; 
+                overflow-y: auto; 
+                overflow-x: auto; 
             }
         </style>
-        
-        
+        <title>SAM - Consulta de Profesores </title>
     </h:head>
     <h:body>
         <div class="nav">
@@ -97,14 +96,14 @@
             <h:form>
             <p:menu class="menu">
                  <p:submenu label="Profesor" class="submenu">
-                    <p:menuitem value="Alta" url="altaProfesor.xhtml" icon="fa fa-user-plus"/>
+                    <p:menuitem value="Alta" url="altaProfesores.xhtml" icon="fa fa-user-plus"/>
                     <p:menuitem value="Consulta" url="consultaProfesores.xhtml" icon="fa fa-search"/>
                     <p:menuitem value="Eliminar" url="http://www.metacafe.com" icon="fa fa-trash"/>
                 </p:submenu>
                 <p:submenu label="Unidad de Aprendizaje" styleClass="submenu">
                     <p:menuitem value="Alta" url="altaUnidad.xhtml" icon="fa fa-plus"/>
-                    <p:menuitem value="Asignación" url="http://mail.yahoo.com" icon="fa fa-tasks"/>
-                    <p:menuitem value="Modificación" url="http://www.break.com" icon="fa fa-pencil"/>
+                    <p:menuitem value="Asignación" url="asignacion.xhtml" icon="fa fa-tasks"/>
+                    <p:menuitem value="Modificación" url="modificacion.xhtml" icon="fa fa-pencil"/>
                 </p:submenu>
 
                  <p:menuitem value="Cerrar Sesión" url="login.xhtml" icon="fa fa-power-off"/>
