@@ -6,6 +6,7 @@
 package mx.pawscript.helper;
 
 import java.io.Serializable;
+import java.util.List;
 import mx.pawscript.entidad.Unidades;
 import mx.pawscript.integracion.ServiceFacadeLocator;
 
@@ -24,6 +25,10 @@ public class unidadesHelper implements Serializable {
     
     public int validarUnidad(Unidades unidad){
         return ServiceFacadeLocator.getInstanceFacadeUnidades().validarUnidad(unidad);
+    }
+    
+    public List<Unidades> obtenerUnidades(){
+        return ServiceFacadeLocator.getInstanceFacadeUnidades().obtenerUnidades();
     }
      
 }

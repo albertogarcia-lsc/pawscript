@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
-      >
+          
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -107,33 +108,23 @@
             </p:menu> 
             </h:form>
         </div>
-            <div class = "row">
-                <h:form>
-                    <p:messages id="messages" showDetail="true" closable="true" style="position: absolute; top: 50px; right: 20px;" />
-                    <div class="login">
-                        <div class="panel-header">
-                            <p:outputLabel value="ASIGNACIÓN DE UNIDADES - PROFESOR" />
-                        </div>
-                        <div class="panel-body">
-                            <!--Profesor-->
-                            <div class=" form-group">
-                                  <p:selectOneMenu id="combo" value="#{bean.selectedItem}">
-                                        <f:selectItem itemLabel="Selecciona Profesor" itemValue="" />
-                                        <f:selectItems value="#{bean.items}" var="item" itemLabel="#{item.label}" itemValue="#{item}" />
-                                   </p:selectOneMenu>
-                            </div>
-                            <!--Unidad-->
-                            <div class=" form-group">
-                                  <p:selectOneMenu id="combo" value="#{bean.selectedItem}">
-                                        <f:selectItem itemLabel="Selecciona Unidad de Aprendizaje" itemValue="" />
-                                        <f:selectItems value="#{bean.items}" var="item" itemLabel="#{item.label}" itemValue="#{item}" />
-                                   </p:selectOneMenu>
-                            </div>
-                            <p:commandButton class="btn btn-warning" update="messages" value ="Aceptar" actionListener="#{unidadBeanUI.alta}" />
-                        </div>
-                    </div>
-                </h:form>
-            </div> 
+            <h:form>
+                <p:selectOneMenu id="option" value="#{consultaBeanUI.idOpcionSeleccionadaMaestro}">
+                    <f:selectItem itemLabel="Selecciona un profesor" itemValue=""/>
+                    <f:selectItems value="#{consultaBeanUI.profesores}" var="profesor"
+                                   itemLabel="#{profesor.numProfesor} - #{profesor.nombre}" itemValue="#{profesor.numProfesor}"/>
+                </p:selectOneMenu>
+                
+                <p:selectOneMenu id="optionUnidades" value="#{consultaBeanUI.idOpcionSeleccionadaUnidad}">
+                    <f:selectItem itemLabel="Selecciona una unidad" itemValue=""/>
+                    <f:selectItems value="#{consultaBeanUI.unidades}" var="unidad"
+                                   itemLabel="#{unidad.claveUnidadAprendizaje} - #{unidad.nombreUnidad}" itemValue="#{unidad.claveUnidadAprendizaje}"/>
+                </p:selectOneMenu>
+                
+                <p:commandButton class="btn btn-warning" value ="Aceptar" actionListener="#{consultaBeanUI.alta}" />
+                
+                <p:outputLabel value="Unidad seleccionada: #{consultaBeanUI.idOpcionSeleccionadaUnidad}" />
+            </h:form>
         </div>
     </h:body>
 </html>

@@ -6,6 +6,7 @@
 package mx.pawscript.helper;
 
 import java.io.Serializable;
+import java.util.List;
 import mx.pawscript.entidad.Profesores;
 import mx.pawscript.integracion.ServiceFacadeLocator;
 
@@ -25,6 +26,14 @@ public class profesorHelper implements Serializable{
     
     public int validarAlta(Profesores profesor){
         return ServiceFacadeLocator.getInstanceFacadeProfesores().validarAlta(profesor);
+    }
+    
+    public List<Profesores> obtenerProfesores(){
+        return ServiceFacadeLocator.getInstanceFacadeProfesores().obtenerProfesores();
+    }
+    
+    public void altaRelacion(int numeroProfesor, int numUnidad){
+        ServiceFacadeLocator.getInstanceFacadeProfesores().altaRelacion(numeroProfesor,numUnidad);
     }
     
 }

@@ -5,6 +5,7 @@
  */
 package mx.pawscript.facade;
 
+import java.util.List;
 import mx.pawscript.delegate.DelegateUnidades;
 import mx.pawscript.entidad.Unidades;
 
@@ -26,5 +27,9 @@ public class FacadeUnidades {
     
     public int validarUnidad(Unidades unidad) {
         return delegateUnidades.validacionesUnidad(unidad);
+    }
+    
+     public List<Unidades> obtenerUnidades() {
+        return delegateUnidades.obtenerUnidades();
     }
 }

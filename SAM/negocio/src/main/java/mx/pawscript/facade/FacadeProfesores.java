@@ -5,6 +5,7 @@
  */
 package mx.pawscript.facade;
 
+import java.util.List;
 import mx.pawscript.delegate.DelegateProfesores;
 import mx.pawscript.entidad.Profesores;
 
@@ -36,9 +37,20 @@ public class FacadeProfesores {
     public void altaProfesor(Profesores profesor) {
         delegateProfesores.registrarProfesor(profesor);
     }
-    
+    /**
+     * Metodo para validar usuario
+     * @param profesor
+     */
     public int validarAlta(Profesores profesor) {
         return delegateProfesores.validacionesAlta(profesor);
+    }
+    
+    public List<Profesores> obtenerProfesores() {
+        return delegateProfesores.obtenerProfesores();
+    }
+    
+    public void altaRelacion(int numProfesor, int numUnidad){
+        delegateProfesores.altaRelacion(numProfesor,numUnidad);
     }
     
     /**
