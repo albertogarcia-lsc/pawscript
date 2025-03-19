@@ -77,7 +77,7 @@
             }
         </style>
         
-        <title>SAM - Alta de Unidad</title>
+        <title>SAM - Asignación de Unidades</title>
     </h:head>
         <h:body>
         <div class="nav">
@@ -112,39 +112,26 @@
                     <p:messages id="messages" showDetail="true" closable="true" style="position: absolute; top: 50px; right: 20px;" />
                     <div class="login">
                         <div class="panel-header">
-                            <p:outputLabel value="ALTA DE UNIDAD DE APRENDIZAJE" />
+                            <p:outputLabel value="ASIGNACIÓN DE UNIDADES - PROFESOR" />
                         </div>
                         <div class="panel-body">
                             <div class=" form-group">
-                                <p:inputText class ="form-control" placeholder ="Clave de unidad" value="#{unidadBeanUI.unidad.claveUnidadAprendizaje}"/>
-                            </div>
-                            <div class="form-group">
-                                <p:inputText class ="form-control" placeholder="Nombre" value="#{unidadBeanUI.unidad.nombreUnidad}" />
-                            </div>
-                            <div class=" form-group">
-                                <p:inputText class ="form-control" placeholder ="Horas clase" value ="#{unidadBeanUI.unidad.horasClase}" />
-                            </div>
-                            <div class="form-group">
-                                <p:inputText class ="form-control" placeholder="Horas taller" value="#{unidadBeanUI.unidad.horasTaller}" />
+                                  <p:selectOneMenu id="combo" value="#{bean.selectedItem}">
+                                        <f:selectItem itemLabel="Selecciona Profesor" itemValue="" />
+                                        <f:selectItems value="#{bean.items}" var="item" itemLabel="#{item.label}" itemValue="#{item}" />
+                                   </p:selectOneMenu>
                             </div>
                             <div class=" form-group">
-                                <p:inputText class ="form-control" placeholder ="Horas laboratorio" value ="#{unidadBeanUI.unidad.horasLaboratorio}" />
+                                  <p:selectOneMenu id="combo" value="#{bean.selectedItem}">
+                                        <f:selectItem itemLabel="Selecciona Unidad de Aprendizaje" itemValue="" />
+                                        <f:selectItems value="#{bean.items}" var="item" itemLabel="#{item.label}" itemValue="#{item}" />
+                                   </p:selectOneMenu>
                             </div>
                             <p:commandButton class="btn btn-warning" update="messages" value ="Aceptar" actionListener="#{unidadBeanUI.alta}" />
-
-
-                            <!--
-                            <div class=" form-group">   
-                            <p:commandButton value="Eliminar" type="button" onclick="PF('cd').show()" class="btn btn-danger" />
-                                <p:confirmDialog message="¿Estás seguro de eliminar este registro?" header="Eliminación de Profesor" severity="alert" widgetVar="cd">
-                                <p:commandButton value="Confirmar" actionListener="#{buttonBean.destroyWorld}" update="messages" oncomplete="PF('cd').hide()"/>
-                                <p:commandButton value="Cancelar" onclick="PF('cd').hide();" type="button" />
-                            </p:confirmDialog>
-                            </div>-->
                         </div>
                     </div>
                 </h:form>
-        </div> 
+            </div> 
         </div>
     </h:body>
 </html>

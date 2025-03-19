@@ -84,6 +84,16 @@
                 float:left;
                 width: 10%;
             }
+            
+            .admin-class{
+                border:none;
+                outline:none;
+                padding: 5px;
+            }
+            
+            .admin{
+                margin-left: 10px;
+            }
         </style>
         <title>SAM - Alta de Profesor</title>
     </h:head>
@@ -103,12 +113,12 @@
             <p:menu class="menu">
                  <p:submenu label="Profesor" class="submenu">
                     <p:menuitem value="Alta" url="altaProfesores.xhtml" icon="fa fa-user-plus"/>
-                    <p:menuitem value="Consulta" url="http://www.youtube.com" icon="fa fa-search"/>
+                    <p:menuitem value="Consulta" url="consultaGeneral.xhtml" icon="fa fa-search"/>
                     <p:menuitem value="Eliminar" url="http://www.metacafe.com" icon="fa fa-trash"/>
                 </p:submenu>
                 <p:submenu label="Unidad de Aprendizaje" styleClass="submenu">
                     <p:menuitem value="Alta" url="altaUnidad.xhtml" icon="fa fa-plus"/>
-                    <p:menuitem value="Asignación" url="http://mail.yahoo.com" icon="fa fa-tasks"/>
+                    <p:menuitem value="Asignación" url="asignacion.xhtml" icon="fa fa-tasks"/>
                     <p:menuitem value="Modificación" url="http://www.break.com" icon="fa fa-pencil"/>
                 </p:submenu>
 
@@ -142,9 +152,12 @@
                                     <div class="form-group">
                                         <p:inputText class="form-control" placeholder="Contraseña" value="#{profesorBeanUI.profesor.password}" />
                                     </div>
-
+                                    <div class="admin-class">
+                                    <p:outputLabel value="Administrador: "/>
+                                        <p:selectBooleanCheckbox class="form-control" value="#{profesorBeanUI.profesor.administrador}" styleClass="admin" />
+                                    </div>
                                     <p:commandButton class="btn btn-warning" value="Aceptar" actionListener="#{profesorBeanUI.alta}" update="messages"/>
-                               </div>
+                                </div>
                          </div>
                   </h:form>
             </div>
