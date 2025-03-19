@@ -75,7 +75,7 @@ public class consultaBeanUI implements Serializable{
         switch(ProfesorHelper.altaRelacion(this.getIdOpcionSeleccionadaMaestro(),this.getIdOpcionSeleccionadaUnidad())){
                 case 1:
                     ProfesorHelper.altaRelacion(idOpcionSeleccionadaMaestro, idOpcionSeleccionadaUnidad);
-                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Éxito", "Profesor agregado correctamente.");
+                    messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Éxito", "Asignación realizada correctamente.");
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
                 case 2:
