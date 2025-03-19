@@ -1,5 +1,6 @@
 mx\pawscript\ui\altaBeanUI.class
 mx\pawscript\components\NewClass.class
+mx\pawscript\ui\consultaBeanUI.class
 mx\pawscript\ui\unidadesBeanUI.class
 mx\pawscript\helper\unidadesHelper.class
 mx\pawscript\helper\profesorHelper.class

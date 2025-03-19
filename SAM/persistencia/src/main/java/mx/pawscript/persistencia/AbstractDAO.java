@@ -16,8 +16,13 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import mx.pawscript.persistencia.InterfaceDAO;
 import java.util.List;
+import java.util.Objects;
+import mx.pawscript.entidad.Profesores;
+import mx.pawscript.entidad.Unidades;
 //import mx.avanti.siract.dao.InterfaceDAO;
 import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.metadata.ClassMetadata;
 import org.hibernate.transform.Transformers;
 
@@ -534,6 +539,30 @@ public abstract class AbstractDAO<PK extends Serializable, T> implements Interfa
             HibernateUtil.closeSession();
         }
         return result;
+    }
+    
+        public int agregarUnidadAProfesor(Integer numProfesor, Integer claveUnidadAprendizaje) {
+        Session session = HibernateUtil.getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            Profesores profesor = session.get(Profesores.class, numProfesor);
+            Unidades unidad = session.get(Unidades.class, claveUnidadAprendizaje);
+            for(Unidades aux: profesor.getUnidadesList()){
+                if(Objects.equals(aux.getClaveUnidadAprendizaje(), claveUnidadAprendizaje)){
+                    return 2;
+                }
+            }
+            profesor.getUnidadesList().add(unidad);
+            session.saveOrUpdate(profesor);
+            transaction.commit();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        } finally {
+            HibernateUtil.closeSession();
+        }
+        
+        return 1;
     }
     
   

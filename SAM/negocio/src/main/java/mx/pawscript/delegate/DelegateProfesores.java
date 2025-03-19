@@ -103,4 +103,12 @@ public class DelegateProfesores {
         ServiceLocator.getInstanceProfesoresDAO().save(profesor);
     }
     
+    public List<Profesores> obtenerProfesores(){
+        return ServiceLocator.getInstanceProfesoresDAO().findAll();
+    }
+    
+    public int altaRelacion(int numProfesor, int numUnidad){
+        return ServiceLocator.getInstanceProfesoresDAO().agregarUnidadAProfesor(numProfesor, numUnidad);
+    }
+    
 }

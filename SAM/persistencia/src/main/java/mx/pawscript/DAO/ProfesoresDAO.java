@@ -13,5 +13,5 @@ import mx.pawscript.persistencia.AbstractDAO;
  * @author total
  */
 public class ProfesoresDAO extends AbstractDAO<Integer, Profesores>{
-    
+
 }

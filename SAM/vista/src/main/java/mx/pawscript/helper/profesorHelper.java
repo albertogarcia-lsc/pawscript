@@ -27,7 +27,13 @@ public class profesorHelper implements Serializable{
     public int validarAlta(Profesores profesor){
         return ServiceFacadeLocator.getInstanceFacadeProfesores().validarAlta(profesor);
     }
-    static public List<Profesores> consultaProfesores(){
-        return ServiceFacadeLocator.getInstanceFacadeProfesores().consultaProfesores();
+    
+    public List<Profesores> obtenerProfesores(){
+        return ServiceFacadeLocator.getInstanceFacadeProfesores().obtenerProfesores();
     }
+    
+    public int altaRelacion(int numeroProfesor, int numUnidad){
+        return ServiceFacadeLocator.getInstanceFacadeProfesores().altaRelacion(numeroProfesor,numUnidad);
+    }
+    
 }

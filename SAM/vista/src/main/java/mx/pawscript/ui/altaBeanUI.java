@@ -8,7 +8,6 @@ package mx.pawscript.ui;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -28,7 +27,6 @@ import mx.pawscript.helper.profesorHelper;
 public class altaBeanUI implements Serializable{
     private profesorHelper ProfesorHelper;
     private Profesores profesor;
-    private List<Profesores> profesores;
     
     public altaBeanUI() {
         ProfesorHelper = new profesorHelper();
@@ -37,7 +35,6 @@ public class altaBeanUI implements Serializable{
     @PostConstruct
     public void init(){
         profesor = new Profesores();
-        profesores = new ArrayList();
     }
     
     public void alta() throws IOException {
@@ -96,9 +93,6 @@ public class altaBeanUI implements Serializable{
         }
     }
     
-    public List<Profesores> consultaProfesores() throws IOException {
-        return profesorHelper.consultaProfesores();
-    }
     
     
         // Getter y Setter
@@ -110,10 +104,4 @@ public class altaBeanUI implements Serializable{
         this.profesor = profesor;
     }
     
-    public void setProfesores(List<Profesores> profesores){
-        this.profesores = profesores;
-        }
-    public List<Profesores> getProfesores(){
-        return profesores;
-    }
 }
