@@ -6,7 +6,9 @@
 package mx.pawscript.helper;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import mx.pawscript.entidad.Profesores;
 import mx.pawscript.integracion.ServiceFacadeLocator;
 
@@ -33,6 +35,22 @@ public class profesorHelper implements Serializable{
     }
      public List<Profesores> obtenerProfesoresTabla(){
         return ServiceFacadeLocator.getInstanceFacadeProfesores().consultaProfesoresTabla();
+    }
+    public List<Profesores> obtenerProfesoresSinUnidades() {
+        List<Profesores> todosLosProfesores = obtenerProfesores();
+        List<Profesores> profesoresSinUnidades = new ArrayList<Profesores>();
+
+        for (Profesores profesor : todosLosProfesores) {
+            if (profesor.getUnidadesList().isEmpty()) {
+                profesoresSinUnidades.add(profesor);
+            }
+        }
+
+        return profesoresSinUnidades;
+    }
+    
+    public void bajaProfesor(Profesores profesor){
+        ServiceFacadeLocator.getInstanceFacadeProfesores().bajaProfesor(profesor);
     }
     
     public int altaRelacion(int numeroProfesor, int numUnidad){

@@ -50,6 +50,10 @@ public class DelegateProfesores {
         return ServiceLocator.getInstanceProfesoresDAO().findAllTabla();
     }
     
+    public void bajaProfesor (Profesores profesor){
+        ServiceLocator.getInstanceProfesoresDAO().delete(profesor);
+    }
+    
     /**
      * Metodo para validaciones
      * @param profesor
