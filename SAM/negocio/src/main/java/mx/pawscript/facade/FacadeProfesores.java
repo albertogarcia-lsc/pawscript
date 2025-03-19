@@ -1,10 +1,12 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package mx.pawscript.facade;
 
+import java.io.Serializable;
+import java.util.List;
 import mx.pawscript.delegate.DelegateProfesores;
 import mx.pawscript.entidad.Profesores;
 
@@ -12,7 +14,7 @@ import mx.pawscript.entidad.Profesores;
  *
  * @author EduardoCardona <>
  */
-public class FacadeProfesores {
+public class FacadeProfesores implements Serializable {
     
     private final DelegateProfesores delegateProfesores;
 
@@ -49,4 +51,7 @@ public class FacadeProfesores {
         delegateProfesores.saveProfesor(profesor);
     }
     
+     public List<Profesores> consultaProfesores() {
+        return delegateProfesores.consultaProfesores();
+    }
 }

@@ -21,6 +21,8 @@ public interface InterfaceDAO<T> {
     public T find(Integer id);
 
     public List<T> findAll();
+    
+    public List<T> findAllP();
 
     public void saveOrUpdate(T instance);
 

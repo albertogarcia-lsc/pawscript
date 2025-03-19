@@ -19,7 +19,7 @@ import mx.pawscript.helper.unidadesHelper;
 @ManagedBean(name = "unidadBeanUI")
 @SessionScoped
 public class unidadesBeanUI implements Serializable{
-    private unidadesHelper unidadHelper;
+    private transient unidadesHelper unidadHelper;
     private Unidades unidad;
     
     public unidadesBeanUI() {
