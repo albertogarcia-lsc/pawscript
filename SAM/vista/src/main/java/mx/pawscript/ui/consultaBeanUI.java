@@ -6,7 +6,9 @@
 package mx.pawscript.ui;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -34,6 +36,7 @@ public class consultaBeanUI implements Serializable{
     private Unidades opcionSeleccionadaUnidad;
     private List<Unidades> listaUnidades;
     private int idOpcionSeleccionadaUnidad;
+    private String unidadBuscar;
     
     public consultaBeanUI() {
         ProfesorHelper = new profesorHelper();
@@ -83,6 +86,30 @@ public class consultaBeanUI implements Serializable{
                     FacesContext.getCurrentInstance().addMessage(null, messages);
                 break;
         }
+    }
+    
+    public void buscarUnidad(){
+        FacesMessage messages = new FacesMessage(FacesMessage.SEVERITY_INFO, "Éxito", "Mensaje inicializado");
+        List<Profesores> ProfesoresImparten = new ArrayList<>();
+        try {
+        Integer.parseInt(unidadBuscar);
+            for(Unidades aux: this.getUnidades()){
+                if(Objects.equals(aux.getClaveUnidadAprendizaje(), unidadBuscar)){
+                    ProfesoresImparten = aux.getProfesoresList();
+                    break;
+                }
+            }
+        if(ProfesoresImparten.isEmpty()){
+            messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "No se encontraron profesores");
+            FacesContext.getCurrentInstance().addMessage(null, messages);
+        }
+            
+        } catch (NumberFormatException e) {
+            messages = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "La busqueda solo permite números. Porfavor solo ingresar números.");
+            FacesContext.getCurrentInstance().addMessage(null, messages);
+        }
+
+
     }
    
 

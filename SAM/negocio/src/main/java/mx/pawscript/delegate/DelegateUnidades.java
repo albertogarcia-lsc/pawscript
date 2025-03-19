@@ -69,4 +69,5 @@ public class DelegateUnidades {
     public List<Unidades> obtenerUnidades(){
         return ServiceLocator.getInstanceUnidadesDAO().findAll();
     }
+   
 }
