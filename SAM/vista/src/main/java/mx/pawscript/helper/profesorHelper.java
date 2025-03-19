@@ -39,4 +39,8 @@ public class profesorHelper implements Serializable{
         return ServiceFacadeLocator.getInstanceFacadeProfesores().altaRelacion(numeroProfesor,numUnidad);
     }
     
+    public int eliminarRelacion(int numeroProfesor, int numUnidad){
+        return ServiceFacadeLocator.getInstanceFacadeProfesores().eliminarRelacion(numeroProfesor,numUnidad);
+    }
+    
 }

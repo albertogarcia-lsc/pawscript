@@ -581,6 +581,25 @@ public abstract class AbstractDAO<PK extends Serializable, T> implements Interfa
         
         return 1;
     }
+        
+     public int eliminarUnidadAProfesor(Integer numProfesor, Integer claveUnidadAprendizaje) {
+        Session session = HibernateUtil.getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            Profesores profesor = session.get(Profesores.class, numProfesor);
+            Unidades unidad = session.get(Unidades.class, claveUnidadAprendizaje);
+            profesor.getUnidadesList().remove(unidad);
+            session.saveOrUpdate(profesor);
+            transaction.commit();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        } finally {
+            HibernateUtil.closeSession();
+        }
+        
+        return 1;
+    }
     
   
 }

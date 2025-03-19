@@ -132,9 +132,14 @@ public class Unidades implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "mx.pawscript.entidad.Unidades[ claveUnidadAprendizaje=" + claveUnidadAprendizaje + " ]";
-    }
+        @Override
+        public String toString() {
+            return "Clave:" + claveUnidadAprendizaje + "\n" +
+                   "Nombre:'" + nombreUnidad + '\'' + "\n" +
+                   "Horas Clase:" + horasClase + "\n" +
+                   "Horas Taller:" + horasTaller + "\n" +
+                   "Horas Laboratorio:" + horasLaboratorio + "\n";
+        }
+
     
 }

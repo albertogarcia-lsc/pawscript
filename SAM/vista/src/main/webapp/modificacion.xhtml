@@ -117,36 +117,25 @@
                         </div>
                         <div class="panel-body">
                             <div class="form-group" style="display: flex;">
-                                 <p:inputText class="form-control" placeholder="Ingresa clave de unidad" autocomplete="false" value=""/>
-                                  <p:commandButton class="btn btn-warning" value="Buscar" update="messages"/>
+                                <p:inputText class="form-control" placeholder="Ingresa clave de unidad" autocomplete="false" value="#{consultaBeanUI.unidadBuscar}"/>
+                                 <p:commandButton class="btn btn-warning" update="messages listbox nombreUnidadBuscada claveUnidad HorasC HorasT HorasL" value="Buscar" actionListener="#{consultaBeanUI.buscarUnidad()}"/>
                             </div>
-                            <!--
-                                <p:selectOneListbox value="" converter="player" var="p">
-                                        <f:selectItems value="#{bean.players}" var="player"
-                                        itemLabel="#{player.name}" itemValue="#{player}" />
-
-                                        <p:column>
-                                        <p:graphicImage value="/images/barca/#{p.photo}" width="40"/>
-                                        </p:column>
-                                        <p:column>
-                                        #{p.name} - #{p.number}
-                                        </p:column>
-                                </p:selectOneListbox> -->
                                  <div class="form-group" style="display: flex;">
-                                <p:selectOneListbox value="Hola">
-                                    <f:selectItem itemLabel="Hola" itemValue="Hola" />
-                                    <f:selectItem itemLabel="Mundo" itemValue="Mundo" />
-                                    <f:selectItem itemLabel="Prueba" itemValue="Prueba" />
-                                </p:selectOneListbox>
-                                <p:selectOneListbox value="Hola" style="margin-left: 20%;">
-                                    <f:selectItem itemLabel="Hola" itemValue="Hola" />
-                                    <f:selectItem itemLabel="Mundo" itemValue="Mundo" />
-                                    <f:selectItem itemLabel="Prueba" itemValue="Prueba" />
-                                </p:selectOneListbox>
+                                     <h:panelGrid columns="1" cellpadding="5">
+                                     <h:outputLabel id="nombreUnidadBuscada" value="#{consultaBeanUI.nombreUnidadBuscada}" />
+                                     <h:outputLabel id="claveUnidad" value="#{consultaBeanUI.claveUnidadBuscada}" />
+                                     <h:outputLabel id="HorasC" value="#{consultaBeanUI.horasCBuscada}" />
+                                     <h:outputLabel id="HorasT" value="#{consultaBeanUI.horasTBuscada}" />
+                                     <h:outputLabel id="HorasL" value="#{consultaBeanUI.horasLBuscada}" />
+                                     </h:panelGrid>
+                                    <p:selectOneListbox id="listbox" value="#{consultaBeanUI.idOpcionSeleccionadaMaestro}">
+                                        <f:selectItems value="#{consultaBeanUI.profesoresImparte}" var="profesor"
+                                                       itemLabel="#{profesor.numProfesor} - #{profesor.nombre}" 
+                                                       itemValue="#{profesor.numProfesor}"/>
+                                    </p:selectOneListbox>
                                  </div>
                             <div class="form-group" style="display: flex;">
-                                 <p:commandButton class="btn btn-danger" value="Eliminar" update="messages"/>
-                                 <p:commandButton class="btn btn-success" value="Cambiar" update="messages"/>
+                                 <p:commandButton class="btn btn-danger" value="Eliminar" update="messages listbox" actionListener="#{consultaBeanUI.eliminarRelacion}"/>
                             </div>
                         </div>
                     </div>

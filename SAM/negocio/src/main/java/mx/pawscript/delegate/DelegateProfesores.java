@@ -115,4 +115,8 @@ public class DelegateProfesores {
         return ServiceLocator.getInstanceProfesoresDAO().agregarUnidadAProfesor(numProfesor, numUnidad);
     }
     
+    public int eliminarRelacion(int numProfesor, int numUnidad){
+        return ServiceLocator.getInstanceProfesoresDAO().eliminarUnidadAProfesor(numProfesor, numUnidad);
+    }
+    
 }

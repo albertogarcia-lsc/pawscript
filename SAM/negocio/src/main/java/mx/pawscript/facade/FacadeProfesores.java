@@ -62,4 +62,8 @@ public class FacadeProfesores implements Serializable {
     public int altaRelacion(int numProfesor, int numUnidad){
         return delegateProfesores.altaRelacion(numProfesor, numUnidad);
     }
+    
+    public int eliminarRelacion(int numProfesor, int numUnidad){
+        return delegateProfesores.eliminarRelacion(numProfesor, numUnidad);
+    }
 }
