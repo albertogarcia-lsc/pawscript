@@ -1,4 +1,6 @@
+mx\pawscript\helper\LoginHelper.class
 mx\pawscript\ui\bajaBeanUI.class
+mx\pawscript\ui\LoginBeanUI.class
 mx\pawscript\ui\altaBeanUI.class
 mx\pawscript\components\NewClass.class
 mx\pawscript\ui\consultaBeanUI.class

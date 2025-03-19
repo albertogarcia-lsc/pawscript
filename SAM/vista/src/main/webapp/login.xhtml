@@ -86,11 +86,11 @@
                     <div class="panel-body">
                         <div class=" form-group">
                             <p:outputLabel value="Correo electrónico" style="font-family: 'Lato', sans-serif;"/>
-                            <p:inputText class ="form-control" placeholder ="ingrese correo" autocomplete="false" value ="#{loginUI.usuario.correo}" />
+                            <p:inputText class ="form-control" placeholder ="ingrese correo" autocomplete="false" value ="#{loginUI.profesor.correo}" />
                         </div>
                         <div class="form-group">
                             <p:outputLabel value="Contraseña" style="font-family: 'Lato', sans-serif;"/>
-                            <p:password class ="form-control" placeholder="ingrese contraseña " value="#{loginUI.usuario.contrasena}" />
+                            <p:password class ="form-control" placeholder="ingrese contraseña " value="#{loginUI.profesor.password}" />
                         </div>
                         <p:commandButton update="messages" class = "btn btn-success" value ="Iniciar sesion" actionListener ="#{loginUI.login()}" />
                     </div>
