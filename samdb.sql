@@ -28,6 +28,8 @@ CREATE TABLE `profesores` (
   `apellido` varchar(30) NOT NULL,
   `RFC` varchar(13) NOT NULL,
   `Administrador` tinyint(1) DEFAULT '0',
+  `correo` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`numProfesor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -38,6 +40,7 @@ CREATE TABLE `profesores` (
 
 LOCK TABLES `profesores` WRITE;
 /*!40000 ALTER TABLE `profesores` DISABLE KEYS */;
+INSERT INTO `profesores` VALUES (1,'ab','das','GABA040419HBC',NULL,'alberto12435@gmail.com','faksd'),(2,'Eli','Serna','GABA040419HBB',1,'elirainbow@gmail.com','eli'),(648,'Adrian','Ramos','LMA951103H34',NULL,'jackyrms22@gmail.com','bedoyaramos123'),(5646,'Gerardo','Moreno','GMR567843J78',NULL,'gera@gmail.com','tilin'),(55656,'Adrian','Ramos','JBR951103H34',NULL,'jackyrms22@gmail.com','bedoyaramos123'),(65748,'Adrian','Ramos','BRJ951103H34',NULL,'jackyrms22@gmail.com','bedoyaramos123');
 /*!40000 ALTER TABLE `profesores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,6 +67,7 @@ CREATE TABLE `unidades` (
 
 LOCK TABLES `unidades` WRITE;
 /*!40000 ALTER TABLE `unidades` DISABLE KEYS */;
+INSERT INTO `unidades` VALUES (1,'Matematicas',1,1,1),(2,'Español',100,0,1),(3,'Español',100,0,1),(10,'REACT',1,1,1);
 /*!40000 ALTER TABLE `unidades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,6 +94,7 @@ CREATE TABLE `usuarios_unidades` (
 
 LOCK TABLES `usuarios_unidades` WRITE;
 /*!40000 ALTER TABLE `usuarios_unidades` DISABLE KEYS */;
+INSERT INTO `usuarios_unidades` VALUES (5646,1),(648,10);
 /*!40000 ALTER TABLE `usuarios_unidades` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -102,4 +107,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-15  1:37:44
+-- Dump completed on 2025-03-20 12:36:23
